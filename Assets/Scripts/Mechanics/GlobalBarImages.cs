@@ -12,18 +12,18 @@ public class GlobalBarImages : MonoBehaviour {
 
 
 	void Update () {
-        if(GlobalFood.FoodCount > 0)
-        {
-            GetComponent<Image>().sprite = NormalBG;
-        }
-        else if(GlobalFood.FoodCount == 0)
-        {
-            GetComponent<Image>().sprite = CautionBG;
-        }
-        else
-        {
-            GetComponent<Image>().sprite = DangerBG;
-        }
+        //if(GlobalFood.FoodCount > 0)
+        //{
+        //    GetComponent<Image>().sprite = NormalBG;
+        //}
+        //else if(GlobalFood.FoodCount == 0)
+        //{
+        //    GetComponent<Image>().sprite = CautionBG;
+        //}
+        //else
+        //{
+        //    GetComponent<Image>().sprite = DangerBG;
+        //}
 		
 	}
 }

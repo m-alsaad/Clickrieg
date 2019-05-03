@@ -7,7 +7,7 @@ using System;
 
 public class EnemyImage : MonoBehaviour {
 
-
+    public Sprite BanditImage;
     public Sprite RabbitImage;
     public Sprite DeerImage;
 
@@ -18,7 +18,8 @@ public class EnemyImage : MonoBehaviour {
 	void Update () {
         if(Battle.CurrentBattle < 6)
         {
-            GetComponent<Image>().sprite = RabbitImage;
+            GetComponent<Image>().sprite = BanditImage;
+            
         }
         else if(Battle.CurrentBattle < 11)
         {

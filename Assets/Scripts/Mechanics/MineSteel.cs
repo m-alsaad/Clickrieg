@@ -9,7 +9,7 @@ public class MineSteel : MonoBehaviour {
         if(GlobalMoney.MoneyCount - 2 >= 0)
         {
             GlobalMoney.MoneyCount -= 2;
-            GlobalSteel.SteelCount += 1;
+            
         }
     }
 }

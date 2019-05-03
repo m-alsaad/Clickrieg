@@ -6,7 +6,7 @@ public class ConstructionButton : MonoBehaviour
 {
 
     public GameObject Background;
-    bool Active = false;
+    bool Active = true;
 
 
 

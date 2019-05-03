@@ -8,7 +8,7 @@ public class Rabbit : MonoBehaviour
 {
 
     public static string UnitName = "Rabbit";
-    public static int UnitHitPoint = 5;
+    public static int UnitHitPoint = 50;
     public static int UnitAttack = 0;
     public static int UnitDefense = 0;
     public static int UnitEvade = 5;
@@ -24,7 +24,7 @@ public class Rabbit : MonoBehaviour
 
     void Update()
     {
-        EnemyText.GetComponent<Text>().text = UnitName;
+        
         
     }
 }

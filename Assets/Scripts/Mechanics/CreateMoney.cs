@@ -8,11 +8,7 @@ public class CreateMoney : MonoBehaviour {
 
     public void ButtonClick()
     {
-        if(GlobalFood.FoodCount - 5 >= 0)
-        {
-            GlobalMoney.MoneyCount += 1;
-            GlobalFood.FoodCount -= 5;
-        }
+
 
     }
 }
