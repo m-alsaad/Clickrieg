@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 162503022}
   - component: {fileID: 162503021}
   m_Layer: 5
-  m_Name: Money Text
+  m_Name: Gold Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1639,6 +1639,7 @@ GameObject:
   - component: {fileID: 356307935}
   - component: {fileID: 356307938}
   - component: {fileID: 356307937}
+  - component: {fileID: 356307936}
   m_Layer: 5
   m_Name: Fuel
   m_TagString: Untagged
@@ -1666,6 +1667,20 @@ RectTransform:
   m_AnchoredPosition: {x: -262.49997, y: -50}
   m_SizeDelta: {x: 175, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &356307936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356307934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  TextObject: {fileID: 624956769}
 --- !u!114 &356307937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2576,7 +2591,7 @@ GameObject:
   - component: {fileID: 526042451}
   - component: {fileID: 526042450}
   m_Layer: 5
-  m_Name: Money Icon
+  m_Name: Gold Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4379,6 +4394,8 @@ MonoBehaviour:
   HealthBar: {fileID: 1878108148}
   ClickButton: {fileID: 89616223}
   HealthBarText: {fileID: 842582509}
+  Gold: {fileID: 2126878752}
+  Science: {fileID: 1207891521}
 --- !u!1 &983903122
 GameObject:
   m_ObjectHideFlags: 0
@@ -5182,9 +5199,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1111290595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74a65cdfc11b2e2489289926c6d8ae43, type: 3}
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   TextObject: {fileID: 1538336307}
 --- !u!114 &1111290598
 MonoBehaviour:
@@ -5795,9 +5813,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159231091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ff45c02fd16d14e90b84218420e939, type: 3}
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   TextObject: {fileID: 504203004}
 --- !u!114 &1159231094
 MonoBehaviour:
@@ -5921,6 +5940,7 @@ GameObject:
   - component: {fileID: 1170247201}
   - component: {fileID: 1170247204}
   - component: {fileID: 1170247203}
+  - component: {fileID: 1170247202}
   m_Layer: 5
   m_Name: Aluminium
   m_TagString: Untagged
@@ -5948,6 +5968,20 @@ RectTransform:
   m_AnchoredPosition: {x: -437.49997, y: -50}
   m_SizeDelta: {x: 175, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1170247202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170247200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  TextObject: {fileID: 1547457716}
 --- !u!114 &1170247203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5996,6 +6030,7 @@ GameObject:
   - component: {fileID: 1207891522}
   - component: {fileID: 1207891524}
   - component: {fileID: 1207891523}
+  - component: {fileID: 1207891525}
   m_Layer: 5
   m_Name: Science
   m_TagString: Untagged
@@ -6060,6 +6095,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207891521}
   m_CullTransparentMesh: 0
+--- !u!114 &1207891525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207891521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  TextObject: {fileID: 1680022421}
 --- !u!1 &1231735320
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,6 +6836,7 @@ GameObject:
   - component: {fileID: 1316622412}
   - component: {fileID: 1316622414}
   - component: {fileID: 1316622413}
+  - component: {fileID: 1316622415}
   m_Layer: 5
   m_Name: Premium
   m_TagString: Untagged
@@ -6851,6 +6901,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316622411}
   m_CullTransparentMesh: 0
+--- !u!114 &1316622415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316622411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  TextObject: {fileID: 1296827792}
 --- !u!1 &1327966969
 GameObject:
   m_ObjectHideFlags: 0
@@ -7291,9 +7355,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1427335252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b452d4895264b84485df74acf181972, type: 3}
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   TextObject: {fileID: 1867346420}
 --- !u!1 &1446594748
 GameObject:
@@ -7423,6 +7488,7 @@ GameObject:
   - component: {fileID: 1446634042}
   - component: {fileID: 1446634044}
   - component: {fileID: 1446634043}
+  - component: {fileID: 1446634045}
   m_Layer: 5
   m_Name: Steel
   m_TagString: Untagged
@@ -7487,6 +7553,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446634041}
   m_CullTransparentMesh: 0
+--- !u!114 &1446634045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446634041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  TextObject: {fileID: 823047578}
 --- !u!1 &1454992886
 GameObject:
   m_ObjectHideFlags: 0
@@ -7646,9 +7726,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1497906791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da5518f023931394b95d703dc7095794, type: 3}
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   TextObject: {fileID: 1393497113}
 --- !u!1 &1516943460
 GameObject:
@@ -7930,6 +8011,7 @@ GameObject:
   - component: {fileID: 1539901231}
   - component: {fileID: 1539901234}
   - component: {fileID: 1539901233}
+  - component: {fileID: 1539901232}
   m_Layer: 5
   m_Name: Oil
   m_TagString: Untagged
@@ -7957,6 +8039,20 @@ RectTransform:
   m_AnchoredPosition: {x: -262.49997, y: 0}
   m_SizeDelta: {x: 175, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1539901232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539901230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  TextObject: {fileID: 332928280}
 --- !u!114 &1539901233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8760,9 +8856,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1684149375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6cfd7da8ee86994a9ac3abad2299a09, type: 3}
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
   TextObject: {fileID: 915474277}
 --- !u!114 &1684149378
 MonoBehaviour:
@@ -10432,14 +10529,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2088345485}
-  - component: {fileID: 2088345490}
   - component: {fileID: 2088345492}
   - component: {fileID: 2088345484}
-  - component: {fileID: 2088345487}
-  - component: {fileID: 2088345493}
-  - component: {fileID: 2088345494}
-  - component: {fileID: 2088345495}
-  - component: {fileID: 2088345496}
   m_Layer: 0
   m_Name: TextMechanics
   m_TagString: Untagged
@@ -10473,34 +10564,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2088345487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088345483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03579fc38a716434797198447e0f3482, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TopBarFuelTextCounter: {fileID: 624956769}
---- !u!114 &2088345490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088345483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7491b81726686409bfa951949dce47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScienceText: {fileID: 1680022421}
-  HappyScience: 0
-  IN_ScienceCount: 0
 --- !u!114 &2088345492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10513,59 +10576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6b9bb3742343e4d88033262d30ae6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2088345493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088345483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4a1ebe0e8b3a84bb327c6845aa5b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TopBarAluminiumTextCounter: {fileID: 1547457716}
---- !u!114 &2088345494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088345483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a80c981fe74f28749a8be4cee544f090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countssssss: 0
-  textField: {fileID: 823047578}
---- !u!114 &2088345495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088345483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76562d7446650748bb8c0dae5f8a367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TopBarOilTextCounter: {fileID: 332928280}
---- !u!114 &2088345496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088345483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52abd2802216454b90a2e5541c6d2dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TextObject: {fileID: 1296827792}
 --- !u!1 &2126878752
 GameObject:
   m_ObjectHideFlags: 0
@@ -10579,7 +10589,7 @@ GameObject:
   - component: {fileID: 2126878754}
   - component: {fileID: 2126878756}
   m_Layer: 5
-  m_Name: Money
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10651,15 +10661,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2126878752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7ba47d60ae4654ba67e2988eaec02f, type: 3}
+  m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 50
   TextObject: {fileID: 162503019}
-  TextObject2: {fileID: 1568891544}
-  TextObject3: {fileID: 1959855380}
-  TextObject4: {fileID: 2044185920}
-  TextObject5: {fileID: 1538916722}
-  reset: 1
 --- !u!1 &2147148073
 GameObject:
   m_ObjectHideFlags: 0

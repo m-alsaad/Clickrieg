@@ -38,6 +38,8 @@ public class Battle : MonoBehaviour {
     public GameObject HealthBar;                    //It's Actually the Dark Bar
     public GameObject ClickButton;                  //The Clickable area of the Enemy
     public GameObject HealthBarText;
+    public GameObject Gold;                         //Gold Object from the Hierarchy
+    public GameObject Science;                      //Science Object from the Hierarchy
 
 
 
@@ -81,8 +83,8 @@ public class Battle : MonoBehaviour {
         //If Enemy is Dead
         if (EnemyHP <= 0)
         {
-            GlobalMoney.MoneyCount += 1 * CurrentBattle;        //Earn Gold
-            GlobalScience.ScienceCount += 1 * CurrentBattle; ;  //Earn Science
+            Gold.GetComponent<Resource>().Add(1*CurrentBattle);     //Earn Gold
+            Science.GetComponent<Resource>().Add(1*CurrentBattle);  //Earn Science
            //GlobalSteel.steel.Add(1);
                 
 

@@ -19,7 +19,7 @@ public class GlobalSteel : Resource
 
     private void Update()
     {
-        textField.GetComponent<Text>().text = "" + base.countssssss;
+        //textField.GetComponent<Text>().text = "" + base.countssssss;
     }
 
 

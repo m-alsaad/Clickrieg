@@ -3,32 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Resource : MonoBehaviour
+public class Resource : MonoBehaviour
 {
-    public int countssssss = 5;
+    public int count = 0;
+    public GameObject TextObject;
 
-    public Resource(int countssssss)
+    void Update()
     {
-        this.countssssss = countssssss;
+        TextObject.GetComponent<Text>().text = "" + count;
     }
 
-    public Resource()
+    public int GetCount()
     {
+        return count;
     }
-
-    //public int Get()
-    //{
-    //    return count;
-    //}
-
-    //protected void Add(int num)
-    //{
-    //    count += num;
-    //}
-
-    //protected void Subtract(int num)
-    //{
-    //    count -= num;
-    //}
+    public void Add(int num)
+    {
+        count += num;
+    }
+    public void Subtract(int num)
+    {
+        count -= 1;
+    }
 
 }
