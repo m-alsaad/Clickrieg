@@ -10,6 +10,9 @@ public class ResearchButton : MonoBehaviour
     public static int TimeCost;
     public static int ID;
 
+    public GameObject Science;
+    public GameObject Gold;
+
     public GameObject ScienceText;
     public GameObject GoldText;
     public GameObject TimeText;
@@ -31,10 +34,10 @@ public class ResearchButton : MonoBehaviour
 
     public void ButtonClick()
     {
-        if(GlobalScience.ScienceCount >= ScienceCost && GlobalMoney.MoneyCount >= GoldCost)
+        if(Science.GetComponent<Resource>().GetCount() >= ScienceCost && Gold.GetComponent<Resource>().GetCount() >= GoldCost)
         {
-            GlobalScience.ScienceCount -= ScienceCost;
-            GlobalMoney.MoneyCount -= GoldCost;
+            Science.GetComponent<Resource>().Subtract(ScienceCost);
+            Gold.GetComponent<Resource>().Subtract(GoldCost);
 
             ScienceText.GetComponent<Text>().text = "";
             GoldText.GetComponent<Text>().text = "";

@@ -23,7 +23,7 @@ public class Resource : MonoBehaviour
     }
     public void Subtract(int num)
     {
-        count -= 1;
+        count -= num;
     }
 
 }

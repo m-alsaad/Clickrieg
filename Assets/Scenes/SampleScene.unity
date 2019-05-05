@@ -354,6 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6803bd66a8e41468ab8b14290a6430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   textBox: {fileID: 0}
 --- !u!114 &57098727
 MonoBehaviour:
@@ -367,6 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b442a8f52586db4cb65e563f8c46ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Science: {fileID: 1207891521}
+  Gold: {fileID: 2126878752}
   ScienceText: {fileID: 1327966969}
   GoldText: {fileID: 1643355224}
   TimeText: {fileID: 1231735320}
@@ -453,10 +457,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abb0971e4997b746b920ca5f1a1940d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   Research_BG: {fileID: 0}
   IncreaseRecruit: {fileID: 0}
   Plus: {fileID: 0}
   Clip: {fileID: 0}
+  Active: 0
 --- !u!114 &57098734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,7 +1184,7 @@ GameObject:
   - component: {fileID: 205802825}
   m_Layer: 0
   m_Name: Recruitment
-  m_TagString: Untagged
+  m_TagString: ResearchMaterial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1300,17 +1307,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 205802820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f12534e5149f73478c76e54d5cf9284, type: 3}
+  m_Script: {fileID: 11500000, guid: a87abbc822e6ec14dac94f4f565e3388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 083680cec78c40a4a8ad8277eb769121, type: 3}
   Name: Recruitment
-  ScienceCost: 50
-  GoldCost: 100
-  TimeCost: 60
+  Quote: This will recruit your ass
+  ScienceCost: 25
+  GoldCost: 10
+  TimeCost: 20
   ID: 2
-  x: 0
-  y: 0
+  RewardClickPower: 30
   DisplayButton: {fileID: 57098729}
   self: {fileID: 205802820}
   ResearchText: {fileID: 2015698493}
@@ -1321,6 +1328,22 @@ MonoBehaviour:
   GoldText: {fileID: 1643355224}
   TimeText: {fileID: 1231735320}
   Button: {fileID: 1560456876}
+  Dependents: 
+  Dependent1: 1
+  Dependent2: 0
+  Dependent3: 0
+  Dependent4: 0
+  Dependent5: 0
+  Relay1: 0
+  Relay2: 0
+  Relay3: 0
+  Relay4: 0
+  Relay5: 0
+  Path1: {fileID: 0}
+  Path2: {fileID: 0}
+  Path3: {fileID: 0}
+  Path4: {fileID: 0}
+  Path5: {fileID: 0}
 --- !u!1 &216464546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,7 +3649,7 @@ GameObject:
   - component: {fileID: 783543225}
   m_Layer: 0
   m_Name: Beginner of CQC
-  m_TagString: Untagged
+  m_TagString: ResearchMaterial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3659,12 +3682,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 783543223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29725e2309f60bc4a806c21d1c5fb4f3, type: 3}
+  m_Script: {fileID: 11500000, guid: a87abbc822e6ec14dac94f4f565e3388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 32218354f387d3e489135e7d40c95cf6, type: 3}
-  x: 0
-  y: 0
+  Name: Beginner of CQC
+  Quote: I'm probably pretty rusty...
+  ScienceCost: 30
+  GoldCost: 10
+  TimeCost: 5
+  ID: 3
+  RewardClickPower: 5
   DisplayButton: {fileID: 57098729}
   self: {fileID: 783543223}
   ResearchText: {fileID: 2015698493}
@@ -3675,6 +3703,22 @@ MonoBehaviour:
   GoldText: {fileID: 1643355224}
   TimeText: {fileID: 1231735320}
   Button: {fileID: 1560456876}
+  Dependents: 
+  Dependent1: 1
+  Dependent2: 0
+  Dependent3: 0
+  Dependent4: 0
+  Dependent5: 0
+  Relay1: 0
+  Relay2: 0
+  Relay3: 0
+  Relay4: 0
+  Relay5: 0
+  Path1: {fileID: 0}
+  Path2: {fileID: 0}
+  Path3: {fileID: 0}
+  Path4: {fileID: 0}
+  Path5: {fileID: 0}
 --- !u!114 &783543227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6107,7 +6151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fa886232beb4c4a87d28ab9643ad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
+  count: 40
   TextObject: {fileID: 1680022421}
 --- !u!1 &1231735320
 GameObject:
@@ -9101,10 +9145,10 @@ GameObject:
   - component: {fileID: 1757686174}
   - component: {fileID: 1757686173}
   - component: {fileID: 1757686175}
-  - component: {fileID: 1757686177}
+  - component: {fileID: 1757686176}
   m_Layer: 0
   m_Name: Basics of CQC
-  m_TagString: Untagged
+  m_TagString: ResearchMaterial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9205,7 +9249,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1757686177}
+      - m_Target: {fileID: 1757686176}
         m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
@@ -9218,7 +9262,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1757686177
+--- !u!114 &1757686176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9227,7 +9271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1757686171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93b51f5f7587874987187ee17bd6444, type: 3}
+  m_Script: {fileID: 11500000, guid: a87abbc822e6ec14dac94f4f565e3388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 56de222f7e1c8e94e8522681d7f791fe, type: 3}
@@ -9235,10 +9279,9 @@ MonoBehaviour:
   Quote: Remember some of the basics of CQC
   ScienceCost: 10
   GoldCost: 0
-  TimeCost: 10
+  TimeCost: 1
   ID: 1
-  x: 0
-  y: 0
+  RewardClickPower: 10
   DisplayButton: {fileID: 57098729}
   self: {fileID: 1757686171}
   ResearchText: {fileID: 2015698493}
@@ -9250,8 +9293,21 @@ MonoBehaviour:
   TimeText: {fileID: 1231735320}
   Button: {fileID: 1560456876}
   Dependents: 
+  Dependent1: 0
+  Dependent2: 0
+  Dependent3: 0
+  Dependent4: 0
+  Dependent5: 0
+  Relay1: 2
+  Relay2: 3
+  Relay3: 0
+  Relay4: 0
+  Relay5: 0
   Path1: {fileID: 188411196}
   Path2: {fileID: 99285345}
+  Path3: {fileID: 0}
+  Path4: {fileID: 0}
+  Path5: {fileID: 0}
 --- !u!1 &1822185378
 GameObject:
   m_ObjectHideFlags: 0
