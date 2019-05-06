@@ -271,13 +271,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 57098732}
-  - component: {fileID: 57098726}
-  - component: {fileID: 57098730}
   - component: {fileID: 57098731}
   - component: {fileID: 57098724}
-  - component: {fileID: 57098733}
   - component: {fileID: 57098734}
-  - component: {fileID: 57098723}
   - component: {fileID: 57098725}
   - component: {fileID: 57098727}
   - component: {fileID: 57098728}
@@ -289,18 +285,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &57098723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57098722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69cb922437831314e8bf6081e5e04732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &57098724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,21 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4c1a6e3a3fd874590f167d71844754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &57098726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57098722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b6803bd66a8e41468ab8b14290a6430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBox: {fileID: 0}
 --- !u!114 &57098727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +362,7 @@ MonoBehaviour:
   ResearchText: {fileID: 2015698493}
   FlashingIcon: {fileID: 2001591811}
   Unlockable: {fileID: 0}
+  ResearchOverlay: {fileID: 330961892}
 --- !u!114 &57098729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,18 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Background: {fileID: 330961892}
---- !u!114 &57098730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57098722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da45758e8fccc04d97e7d647e23b319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &57098731
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -445,25 +403,6 @@ RectTransform:
   m_AnchoredPosition: {x: 734.75494, y: 370.0218}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &57098733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57098722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5abb0971e4997b746b920ca5f1a1940d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Research_BG: {fileID: 0}
-  IncreaseRecruit: {fileID: 0}
-  Plus: {fileID: 0}
-  Clip: {fileID: 0}
-  Active: 0
 --- !u!114 &57098734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1320,14 +1259,6 @@ MonoBehaviour:
   RewardClickPower: 30
   DisplayButton: {fileID: 57098729}
   self: {fileID: 205802820}
-  ResearchText: {fileID: 2015698493}
-  ResearchIcon: {fileID: 216464546}
-  NameText: {fileID: 983903122}
-  QuoteText: {fileID: 1132015513}
-  ScienceText: {fileID: 1327966969}
-  GoldText: {fileID: 1643355224}
-  TimeText: {fileID: 1231735320}
-  Button: {fileID: 1560456876}
   Dependents: 
   Dependent1: 1
   Dependent2: 0
@@ -3695,14 +3626,6 @@ MonoBehaviour:
   RewardClickPower: 5
   DisplayButton: {fileID: 57098729}
   self: {fileID: 783543223}
-  ResearchText: {fileID: 2015698493}
-  ResearchIcon: {fileID: 216464546}
-  NameText: {fileID: 983903122}
-  QuoteText: {fileID: 1132015513}
-  ScienceText: {fileID: 1327966969}
-  GoldText: {fileID: 1643355224}
-  TimeText: {fileID: 1231735320}
-  Button: {fileID: 1560456876}
   Dependents: 
   Dependent1: 1
   Dependent2: 0
@@ -5522,7 +5445,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 57098733}
+      - m_Target: {fileID: 0}
         m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
@@ -5747,7 +5670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1136683648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9284,14 +9207,6 @@ MonoBehaviour:
   RewardClickPower: 10
   DisplayButton: {fileID: 57098729}
   self: {fileID: 1757686171}
-  ResearchText: {fileID: 2015698493}
-  ResearchIcon: {fileID: 216464546}
-  NameText: {fileID: 983903122}
-  QuoteText: {fileID: 1132015513}
-  ScienceText: {fileID: 1327966969}
-  GoldText: {fileID: 1643355224}
-  TimeText: {fileID: 1231735320}
-  Button: {fileID: 1560456876}
   Dependents: 
   Dependent1: 0
   Dependent2: 0

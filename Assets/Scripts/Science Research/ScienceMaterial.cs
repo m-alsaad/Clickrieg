@@ -40,14 +40,15 @@ public class ScienceMaterial : MonoBehaviour
 
     //GameObjects variables
     public GameObject self;                 //To get self values
-    public GameObject ResearchText;         //Research Text within the small Research Window
-    public GameObject ResearchIcon;         //Research Icon within the samll Research Window
-    public GameObject NameText;             //Research Name within the small Research Window
-    public GameObject QuoteText;            //Research Quote within the samll Research Window
-    public GameObject ScienceText;          //Research Science Cost within the small Research Window
-    public GameObject GoldText;             //Research Gold Cost within the small Research Window
-    public GameObject TimeText;             //Research Time Cost within the small Research Window
-    public GameObject Button;               //The Research Button the starts the Research Itself.
+    public static GameObject ResearchText;        //Research Text within the small Research Window
+    public static GameObject ResearchIcon;        //Research Icon within the samll Research Window
+    public static GameObject NameText;             //Research Name within the small Research Window
+    public static GameObject QuoteText;            //Research Quote within the samll Research Window
+    public static GameObject ScienceText;          //Research Science Cost within the small Research Window
+    public static GameObject GoldText;             //Research Gold Cost within the small Research Window
+    public static GameObject TimeText;             //Research Time Cost within the small Research Window
+    public static GameObject Button;               //The Research Button the starts the Research Itself.
+    
 
     //List of 5 Researchs that this depends on. They take the Research ID (int)
     public  List<int> Dependents = new List<int>();
@@ -78,6 +79,7 @@ public class ScienceMaterial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //Get self position
         x = self.transform.localPosition.x;
         y = self.transform.localPosition.y;

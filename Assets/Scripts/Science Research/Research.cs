@@ -45,6 +45,7 @@ public class Research : MonoBehaviour
     public GameObject ResearchText;
     public GameObject FlashingIcon;
     public GameObject Unlockable;
+    public GameObject ResearchOverlay;
 
 
     //Rewards from completed the Research
@@ -68,7 +69,7 @@ public class Research : MonoBehaviour
 
 
         /********************************************************************
-         * Gets in all the Research Material Game Objects from Uniti's Hierchy.
+         * Gets in all the Research Material Game Objects from Unity's Hierchy.
          * But they need to be active/displayed to be able to collect them,
          * thus, it's automatically activated here, grab the objects into the
          * array, and deactivated them. Fast enough to not even be visible
@@ -76,6 +77,17 @@ public class Research : MonoBehaviour
         Background.SetActive(true);
         Objs = GameObject.FindGameObjectsWithTag("ResearchMaterial");
         Background.SetActive(false);
+
+        ResearchOverlay.SetActive(true);
+        ScienceMaterial.ResearchText = GameObject.Find("Overlays/Research Detail Display/Researching Text");
+        ScienceMaterial.ResearchIcon = GameObject.Find("Overlays/Research Detail Display/Research Detail Icon");
+        ScienceMaterial.NameText = GameObject.Find("Overlays/Research Detail Display/Research Title");
+        ScienceMaterial.QuoteText = GameObject.Find("Overlays/Research Detail Display/Research Quote");
+        ScienceMaterial.ScienceText = GameObject.Find("Overlays/Research Detail Display/Research Science Cost");
+        ScienceMaterial.GoldText = GameObject.Find("Overlays/Research Detail Display/Research Gold Cost");
+        ScienceMaterial.TimeText = GameObject.Find("Overlays/Research Detail Display/Research Time Cost");
+        ScienceMaterial.Button = GameObject.Find("Overlays/Research Detail Display/Research Button");
+        ResearchOverlay.SetActive(false);
     }
 
 
@@ -235,6 +247,7 @@ public class Research : MonoBehaviour
 
         //Adds Reward
         Click.clickPower += CompleteClickPower;
+        //Button.SetActive(true);
 
     }
 
