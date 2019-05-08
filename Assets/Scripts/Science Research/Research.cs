@@ -86,6 +86,7 @@ public class Research : MonoBehaviour
         ScienceMaterial.ScienceText = GameObject.Find("Overlays/Research Detail Display/Research Science Cost");
         ScienceMaterial.GoldText = GameObject.Find("Overlays/Research Detail Display/Research Gold Cost");
         ScienceMaterial.TimeText = GameObject.Find("Overlays/Research Detail Display/Research Time Cost");
+        ScienceMaterial.ResearchEffects = GameObject.Find("Overlays/Research Detail Display/Research Effects");
         ScienceMaterial.Button = GameObject.Find("Overlays/Research Detail Display/Research Button");
         ResearchOverlay.SetActive(false);
     }
@@ -223,10 +224,6 @@ public class Research : MonoBehaviour
                     //Unlocks the new Research
                     if (Unlock == true)
                     {
-                        if (Background.activeSelf == false)
-                        {
-                            Background.SetActive(true);
-                        }
                         Unlockable.GetComponent<Button>().interactable = true;
                     }
                     else //Break Out and don't continue
@@ -247,7 +244,6 @@ public class Research : MonoBehaviour
 
         //Adds Reward
         Click.clickPower += CompleteClickPower;
-        //Button.SetActive(true);
 
     }
 

@@ -20,26 +20,24 @@ public class Battle : MonoBehaviour {
     public static int CurrentProgress = 1;          //# of times a Stage is Cleared out of 10
     public static int MaxStage = 1;                 //# of Highest Stage Reached
 
+    int x;
+    int y;
+
     public string EnemyName;                        //Current Enemy's Name
     private double EnemyHP;                         //Enemy's Current HP
     private double EnemyMaxHP;                      //Enemy's Max HP
-    public int clickPower = Click.clickPower;       //Power of Player's Current Click
-
-    public double PercentageHP = 100;               //The Percentage of Current HP
-    public double BarLength = 280;                  //Constant Scale of HP Bar
-    private double RemainingBarLength = 0;          //Scale of Black Bar
-
+    private int clickPower;                         //Power of Player's Current Click
     
 
     public GameObject CurrentBattleNumber;          //# of Stage Text Counter
     public GameObject CurrentBattleProgress;        //# of times a Stage is Cleared Text Counter
     public GameObject EnemyNameText;                //Current Enemy's Name Text Object
     public GameObject EnemyPicture;                 //The Object for the Enemy's Picture
-    public GameObject HealthBar;                    //It's Actually the Dark Bar
     public GameObject ClickButton;                  //The Clickable area of the Enemy
-    public GameObject HealthBarText;
     public GameObject Gold;                         //Gold Object from the Hierarchy
     public GameObject Science;                      //Science Object from the Hierarchy
+    public GameObject HealthBarText;                //The Text of Enemy's HP
+    public Image HealthBarImage;                    //The Red HP Bar Image
 
 
 
@@ -48,7 +46,17 @@ public class Battle : MonoBehaviour {
     {
         CurrentBattleNumber.GetComponent<Text>().text = "" + CurrentBattle;                 //Updates the number of the Stage that is being played
         EnemyNameText.GetComponent<Text>().text = EnemyName;                                //Update the Current Enemy's Name Text
-        HealthBarText.GetComponent<Text>().text = "" + EnemyHP;
+
+        //Update Enemy's HP text and make sure it doesn't show negative numbers
+        if (EnemyHP >= 0)
+        {
+            HealthBarText.GetComponent<Text>().text = "" + EnemyHP;
+        }
+        else
+        {
+            HealthBarText.GetComponent<Text>().text = "0";
+        }
+        
 
         if(CurrentBattle == MaxStage)
         {
@@ -65,31 +73,38 @@ public class Battle : MonoBehaviour {
     private void Start()
     {
         StartCoroutine(EnemyReset());
+
+        //Starting Click Power
+        clickPower = Click.clickPower;
+
+        //Center point of the Enemy's Picture relative to the world's coordinates and not relative to it's container
+        x = (int)EnemyPicture.transform.localPosition.x;
+        y = (int)EnemyPicture.transform.localPosition.y;
     }
 
 
     //CLICKING THE ENEMY FUNCTION
     public void ButtonClick()
     {
-        
+
         StartCoroutine(ShakeEnemyImage());      //Shake the Enemy when Clicked
-        HealthBar.transform.localScale += new Vector3((int)RemainingBarLength, 0f, 0f);     //Return Black Bar to 0 in the begining of each click
-        EnemyHP -= Click.clickPower;                  //Updates new Enemy HP based on Click Power
+
+        clickPower = Click.clickPower;
+
+        EnemyHP -= clickPower;                  //Updates new Enemy HP based on Click Power
 
         
 
-        PercentageHP = (EnemyHP * 100) / EnemyMaxHP;    //The new Precentage of Enemy's HP
+        
         
         //If Enemy is Dead
         if (EnemyHP <= 0)
         {
             Gold.GetComponent<Resource>().Add(1*CurrentBattle);     //Earn Gold
             Science.GetComponent<Resource>().Add(1*CurrentBattle);  //Earn Science
-           //GlobalSteel.steel.Add(1);
-                
 
-            //Turn the HP bar completely Black. This makes sure the Black Bar doesn't overlap the HP bar
-            HealthBar.transform.localScale -= new Vector3((int)RemainingBarLength + ((int)BarLength - (int)RemainingBarLength), 0f, 0f);
+            HealthBarImage.fillAmount = (float)(0);     //Empty's the Health Bar
+
             StartCoroutine(EnemyDefeated());    //Enemy Defeated Effect and Delay Function
 
             //Updates the number of times a stage is cleared variable counter
@@ -105,9 +120,8 @@ public class Battle : MonoBehaviour {
         }
         else //Enemy did not die
         {
-            
-            RemainingBarLength = BarLength - BarLength * (PercentageHP / 100);  //Calculate the length of the Black Bar based on the Enemy's percentage HP
-            HealthBar.transform.localScale -= new Vector3((int)RemainingBarLength, 0f, 0f); //Adds in the Black Bar on top of the HP bar
+            //Remaining Health Bar
+            HealthBarImage.fillAmount = (float)(EnemyHP/EnemyMaxHP);       
         }
     }
 
@@ -115,9 +129,7 @@ public class Battle : MonoBehaviour {
     //Shaking the Enemy Function
     IEnumerator ShakeEnemyImage()
     {
-        //Center point of the Enemy's Picture relative to the world's coordinates and not relative to it's container
-        int x = (int)EnemyPicture.transform.localPosition.x;
-        int y = (int)EnemyPicture.transform.localPosition.y; ;
+        
 
         //Number of Shakes is i
         for (int i = 0; i < 4; i++)
@@ -149,11 +161,12 @@ public class Battle : MonoBehaviour {
         }
         
         yield return new WaitForSeconds(.3f);   //The Delay before Enemy respawn and Clicking is Enabled again
-        HealthBar.transform.localScale += new Vector3(280f, 0f, 0f);    //Refill HP bar
+
+        HealthBarImage.fillAmount = (float)(1);     //Returning Health Bar to Full
         EnemyPicture.GetComponent<Image>().color = new Color32(255, 255, 225, 255); //Bring Picture back from Fade Out 
-        ClickButton.GetComponent<Button>().interactable = true; //Re-Enable Clicking on the Enemy
-        RemainingBarLength = 0; //Reset Variable
         StartCoroutine(EnemyReset());
+        yield return new WaitForSeconds(0.01f);     //Makes sures enemy is brought back with full HP before Click is enabled
+        ClickButton.GetComponent<Button>().interactable = true; //Re-Enable Clicking on the Enemy
     }
 
     IEnumerator EnemyReset()
@@ -171,8 +184,7 @@ public class Battle : MonoBehaviour {
         if(CurrentBattle < MaxStage)
         {
             Battle.CurrentBattle += 1;
-            HealthBar.transform.localScale += new Vector3((int)RemainingBarLength, 0f, 0f);
-            RemainingBarLength = 0;
+            HealthBarImage.fillAmount = (float)(1);
             StartCoroutine(EnemyReset());
         }
         
@@ -184,6 +196,7 @@ public class Battle : MonoBehaviour {
         if(Battle.CurrentBattle > 1)
         {
             Battle.CurrentBattle -= 1;
+            HealthBarImage.fillAmount = (float)(1);
             StartCoroutine(EnemyReset());
         }      
     }

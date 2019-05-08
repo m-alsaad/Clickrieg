@@ -34,6 +34,10 @@ public class ScienceMaterial : MonoBehaviour
     //Rewards
     public int RewardClickPower;
 
+    //Text Area of Rewards
+    [TextArea]
+    public string Effects;
+
 
     //The Background of the Research Tree
     public BackgroundDisplay DisplayButton;
@@ -47,6 +51,7 @@ public class ScienceMaterial : MonoBehaviour
     public static GameObject ScienceText;          //Research Science Cost within the small Research Window
     public static GameObject GoldText;             //Research Gold Cost within the small Research Window
     public static GameObject TimeText;             //Research Time Cost within the small Research Window
+    public static GameObject ResearchEffects;       //Resaearching Effects Text Box within the samll Research Window
     public static GameObject Button;               //The Research Button the starts the Research Itself.
     
 
@@ -173,9 +178,11 @@ public class ScienceMaterial : MonoBehaviour
 
         DisplayButton.ButtonClick();
 
+        //Update The Research Window Overlay
         ResearchIcon.GetComponent<Image>().sprite = Icon;
         NameText.GetComponent<Text>().text = Name;
         QuoteText.GetComponent<Text>().text = "\"" + Quote + "\"";
+        ResearchEffects.GetComponent<Text>().text = "" + Effects;
 
 
         //Conditions on how the information is displayed depending on specific Conditions
