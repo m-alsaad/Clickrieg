@@ -33,6 +33,7 @@ public class ScienceMaterial : MonoBehaviour
 
     //Rewards
     public int RewardClickPower;
+    public GameObject RewardUnlock;
 
     //Text Area of Rewards
     [TextArea]
@@ -174,6 +175,7 @@ public class ScienceMaterial : MonoBehaviour
         Research.RelayList = Relays;
         Research.PathList = Paths;
         Research.CompleteClickPower = RewardClickPower;
+        Research.RewardUnlock = RewardUnlock;
         BackgroundDisplay.ID = ID;
 
         DisplayButton.ButtonClick();
@@ -235,6 +237,17 @@ public class ScienceMaterial : MonoBehaviour
             GoldText.GetComponent<Text>().text = "";
             TimeText.GetComponent<Text>().text = "";
             ResearchText.GetComponent<Text>().text = "";
+        }
+
+    }
+
+    public void Rewards()
+    {
+        Click.clickPower += RewardClickPower;
+
+        if (RewardUnlock != null)
+        {
+            RewardUnlock.SetActive(true);
         }
 
     }

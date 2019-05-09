@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\DragHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\Bandit.cs" />
     <Compile Include="Assets\Scripts\Enemies\Rabbit.cs" />
-    <Compile Include="Assets\Scripts\Equipments\Knife.cs" />
     <Compile Include="Assets\Scripts\Mechanics\BackgroundDisplay.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Battle.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Click.cs" />
@@ -76,6 +75,8 @@
     <Compile Include="Assets\Scripts\Mechanics\GlobalBarImages.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Player.cs" />
     <Compile Include="Assets\Scripts\Mechanics\ResearchGun.cs" />
+    <Compile Include="Assets\Scripts\Production\Knife.cs" />
+    <Compile Include="Assets\Scripts\Production\ProductionUnit.cs" />
     <Compile Include="Assets\Scripts\Resources\Resource.cs" />
     <Compile Include="Assets\Scripts\Science Research\Research.cs" />
     <Compile Include="Assets\Scripts\Science Research\ResearchButton.cs" />
