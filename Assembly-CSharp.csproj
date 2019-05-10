@@ -63,12 +63,16 @@
   <ItemGroup>
     <Compile Include="Assets\ResearchControl.cs" />
     <Compile Include="Assets\sc.cs" />
+    <Compile Include="Assets\Scripts\Construction\Building.cs" />
+    <Compile Include="Assets\Scripts\Construction\ConstructionUnit.cs" />
+    <Compile Include="Assets\Scripts\Construction\Excivating.cs" />
     <Compile Include="Assets\Scripts\ConstructionButton.cs" />
     <Compile Include="Assets\Scripts\DragHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\Bandit.cs" />
     <Compile Include="Assets\Scripts\Enemies\Rabbit.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\BackgroundDisplay.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Battle.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\Buttons\OpenCloseButton.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\Buttons\ResearchDisplay.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Click.cs" />
     <Compile Include="Assets\Scripts\Mechanics\Enemy.cs" />
     <Compile Include="Assets\Scripts\Mechanics\EnemyImage.cs" />

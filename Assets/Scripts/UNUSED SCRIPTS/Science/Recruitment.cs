@@ -17,7 +17,7 @@ public class Recruitment : MonoBehaviour
     public double x;
     public double y;
 
-    public BackgroundDisplay DisplayButton;
+    public ResearchDisplay DisplayButton;
 
     public GameObject self;
     public GameObject ResearchText;
@@ -54,7 +54,7 @@ public class Recruitment : MonoBehaviour
         ResearchButton.ScienceCost = ScienceCost;
         ResearchButton.GoldCost = GoldCost;
         Research.tempID = ID;
-        BackgroundDisplay.ID = ID;
+        ResearchDisplay.ID = ID;
 
         DisplayButton.ButtonClick();
 

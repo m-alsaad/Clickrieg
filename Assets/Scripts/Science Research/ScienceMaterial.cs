@@ -33,7 +33,10 @@ public class ScienceMaterial : MonoBehaviour
 
     //Rewards
     public int RewardClickPower;
+    public int RewardSteel;
+    public GameObject RewardSteelObject;
     public GameObject RewardUnlock;
+    
 
     //Text Area of Rewards
     [TextArea]
@@ -41,7 +44,7 @@ public class ScienceMaterial : MonoBehaviour
 
 
     //The Background of the Research Tree
-    public BackgroundDisplay DisplayButton;
+    public ResearchDisplay DisplayButton;
 
     //GameObjects variables
     public GameObject self;                 //To get self values
@@ -175,8 +178,9 @@ public class ScienceMaterial : MonoBehaviour
         Research.RelayList = Relays;
         Research.PathList = Paths;
         Research.CompleteClickPower = RewardClickPower;
+        Research.CompleteSteelReward = RewardSteel;
         Research.RewardUnlock = RewardUnlock;
-        BackgroundDisplay.ID = ID;
+        ResearchDisplay.ID = ID;
 
         DisplayButton.ButtonClick();
 
@@ -237,17 +241,6 @@ public class ScienceMaterial : MonoBehaviour
             GoldText.GetComponent<Text>().text = "";
             TimeText.GetComponent<Text>().text = "";
             ResearchText.GetComponent<Text>().text = "";
-        }
-
-    }
-
-    public void Rewards()
-    {
-        Click.clickPower += RewardClickPower;
-
-        if (RewardUnlock != null)
-        {
-            RewardUnlock.SetActive(true);
         }
 
     }

@@ -17,7 +17,7 @@ public class BeginnerOfCQC : MonoBehaviour
     public double x;
     public double y;
 
-    public BackgroundDisplay DisplayButton;
+    public ResearchDisplay DisplayButton;
 
     public GameObject self;
     public GameObject ResearchText;
@@ -51,7 +51,7 @@ public class BeginnerOfCQC : MonoBehaviour
 
     public void ButtonClick()
     {
-        BackgroundDisplay.ID = ID;
+        ResearchDisplay.ID = ID;
         ResearchButton.ScienceCost = ScienceCost;
         ResearchButton.GoldCost = GoldCost;
         Research.tempID = ID;

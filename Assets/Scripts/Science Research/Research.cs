@@ -50,7 +50,9 @@ public class Research : MonoBehaviour
 
     //Rewards from completed the Research
     public static int CompleteClickPower;
+    public static int CompleteSteelReward;
     public static GameObject RewardUnlock;
+    public GameObject RewardSteelObject;
 
 
 
@@ -245,8 +247,9 @@ public class Research : MonoBehaviour
 
         //Adds Reward
         Click.clickPower += CompleteClickPower;
+        RewardSteelObject.GetComponent<Resource>().Add(CompleteSteelReward);
         
-        if(RewardUnlock != null)
+        if (RewardUnlock != null)
         {
             RewardUnlock.SetActive(true);
         }
