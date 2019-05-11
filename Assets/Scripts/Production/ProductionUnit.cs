@@ -6,15 +6,17 @@ using UnityEngine.UI;
 public class ProductionUnit : MonoBehaviour
 {
     public string Name;
+    public int Count;
     public int SteelCost;
     public int AluminiumCost;
     public int GoldCost;
 
+    private float x;
+    private float y;
+
     public int ScienceCost;
     public double TimeCost;
     private double TimeRemaining;
-
-    private int count;
 
     private bool ResearchActive;
 
@@ -26,10 +28,15 @@ public class ProductionUnit : MonoBehaviour
     public GameObject CostInTime;
     public GameObject ResearchButton;
     public GameObject BuildButton;
+    public GameObject CountText;
 
     public Image ProductImage;
-    public Image TimeCircle;
     public Animator ResearchAnimation;
+
+    public GameObject Steel;
+    public GameObject Aluminium;
+    public GameObject Gold;
+    public GameObject Science;
 
     
     
@@ -44,12 +51,16 @@ public class ProductionUnit : MonoBehaviour
         CostInGold.GetComponent<Text>().text = "" + GoldCost;
         CostInScience.GetComponent<Text>().text = "" + ScienceCost;
         CostInTime.GetComponent<Text>().text = "" + TimeCost + "s";
+        CountText.GetComponent<Text>().text = "" + Count;
 
         TimeRemaining = TimeCost;
 
         ResearchActive = false;
 
         BuildButton.GetComponent<Button>().interactable = false;
+
+        x = CostInTime.transform.position.x;
+        y = CostInTime.transform.position.y;
     }
 
     // Update is called once per frame
@@ -60,10 +71,17 @@ public class ProductionUnit : MonoBehaviour
 
     public void StartResearch()
     {
-        ResearchAnimation.SetBool("ResearchActive", true);
-        ResearchButton.SetActive(false);
-        ResearchActive = true;
-        StartCoroutine(Researching());
+        if(Science.GetComponent<Resource>().GetCount() >= ScienceCost)
+        {
+            Science.GetComponent<Resource>().Subtract(ScienceCost);
+            CostInScience.SetActive(false);
+            CostInTime.GetComponent<RectTransform>().position = new Vector3(x-5, y, 0);
+            ResearchAnimation.SetBool("ResearchActive", true);
+            ResearchButton.SetActive(false);
+            ResearchActive = true;
+            StartCoroutine(Researching());
+        }
+        
     }
 
 
@@ -75,11 +93,12 @@ public class ProductionUnit : MonoBehaviour
 
             TimeRemaining -= 1;
             CostInTime.GetComponent<Text>().text = "" + TimeRemaining + "s";
-            TimeCircle.fillAmount = (float)(TimeRemaining/TimeCost);
+
 
             if(TimeRemaining <= 0)
             {
-                //ResearchAnimation.SetBool("ResearchActive", false);
+                CostInTime.SetActive(false);
+                CountText.SetActive(true);
                 ResearchAnimation.SetBool("ResearchComplete", true);
                 ProductImage.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
                 CostInScience.SetActive(false);
@@ -90,4 +109,26 @@ public class ProductionUnit : MonoBehaviour
         
 
     }
+
+    public void Produce()
+    {
+        if((Steel.GetComponent<Resource>().GetCount() >= SteelCost) &&
+           (Aluminium.GetComponent<Resource>().GetCount() >= AluminiumCost) &&
+           (Gold.GetComponent<Resource>().GetCount() >= GoldCost))
+        {
+            Steel.GetComponent<Resource>().Subtract(SteelCost);
+            Aluminium.GetComponent<Resource>().Subtract(AluminiumCost);
+            Gold.GetComponent<Resource>().Subtract(GoldCost);
+
+            GoldCost = (int)(GoldCost * 1.8);
+            CostInGold.GetComponent<Text>().text = "" + GoldCost;
+
+            Count += 1;
+            CountText.GetComponent<Text>().text = "" + Count;
+
+            Click.clickPower += 10;
+        }
+    }
+
+
 }
