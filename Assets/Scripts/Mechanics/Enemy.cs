@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
     public static int EnemyAir;
     public static int EnemyNavy;
     public static int EnemyBuilding;
+    public GameObject EnemyImageObject;
 
 
 
@@ -23,15 +24,20 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update () {
  
-        if (Battle.CurrentBattle < 100)
-        { 
+        if (Battle.CurrentBattle < 11)
+        {
+            Debug.Log(Resources.Load<Sprite>("Enemies/Bandit"));
+            EnemyImageObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Enemies/Bandit");
+
             EnemyName = Bandit.Name;
             EnemyHP = Bandit.HP * Battle.CurrentBattle;
         }
-        else if (Battle.CurrentBattle == 100)
+        else if (Battle.CurrentBattle < 21)
         {
-            EnemyName = "Elite " + Bandit.Name;
-            EnemyHP = Bandit.HP * Battle.CurrentBattle * 10;
+            EnemyImageObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Enemies/BanditSquad");
+
+            EnemyName = Bandit.Name + "Squad";
+            EnemyHP = Bandit.HP * Battle.CurrentBattle * 5;
         }
 
         

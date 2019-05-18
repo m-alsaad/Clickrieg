@@ -10,6 +10,11 @@ public class ProductionUnit : MonoBehaviour
     public int SteelCost;
     public int AluminiumCost;
     public int GoldCost;
+    public int Clicks;
+    private int ClicksInProgress;
+
+    public int ClickDamage;
+    public int DPS;
 
     private float x;
     private float y;
@@ -29,6 +34,9 @@ public class ProductionUnit : MonoBehaviour
     public GameObject ResearchButton;
     public GameObject BuildButton;
     public GameObject CountText;
+    public GameObject ClicksTitle;
+    public GameObject ClicksText;
+    public GameObject ClicksInProgressText;
 
     public Image ProductImage;
     public Animator ResearchAnimation;
@@ -45,6 +53,8 @@ public class ProductionUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ClicksInProgress = 0;
+
         ProductName.GetComponent<Text>().text = "" + Name;
         CostInSteel.GetComponent<Text>().text = "" + SteelCost;
         CostInAluminium.GetComponent<Text>().text = "" + AluminiumCost;
@@ -52,6 +62,10 @@ public class ProductionUnit : MonoBehaviour
         CostInScience.GetComponent<Text>().text = "" + ScienceCost;
         CostInTime.GetComponent<Text>().text = "" + TimeCost + "s";
         CountText.GetComponent<Text>().text = "" + Count;
+        ClicksTitle.GetComponent<Text>().text = "Clicks\n" + Clicks;
+        ClicksText.GetComponent<Text>().text = "" + Clicks;
+        ClicksInProgressText.GetComponent<Text>().text = "" + ClicksInProgress;
+        
 
         TimeRemaining = TimeCost;
 
@@ -97,6 +111,9 @@ public class ProductionUnit : MonoBehaviour
 
             if(TimeRemaining <= 0)
             {
+                ClicksTitle.GetComponent<Text>().text = "Clicks\n|";
+                ClicksText.SetActive(true);
+                ClicksInProgressText.SetActive(true);
                 CostInTime.SetActive(false);
                 CountText.SetActive(true);
                 ResearchAnimation.SetBool("ResearchComplete", true);
@@ -116,17 +133,32 @@ public class ProductionUnit : MonoBehaviour
            (Aluminium.GetComponent<Resource>().GetCount() >= AluminiumCost) &&
            (Gold.GetComponent<Resource>().GetCount() >= GoldCost))
         {
+
             Steel.GetComponent<Resource>().Subtract(SteelCost);
             Aluminium.GetComponent<Resource>().Subtract(AluminiumCost);
             Gold.GetComponent<Resource>().Subtract(GoldCost);
 
-            GoldCost = (int)(GoldCost * 1.8);
-            CostInGold.GetComponent<Text>().text = "" + GoldCost;
+            ClicksInProgress += 1;
+            ClicksInProgressText.GetComponent<Text>().text = "" + ClicksInProgress;
 
-            Count += 1;
-            CountText.GetComponent<Text>().text = "" + Count;
+            if(ClicksInProgress >= Clicks)
+            {
+                GoldCost = (int)(GoldCost * 1.4);
+                CostInGold.GetComponent<Text>().text = "" + GoldCost;
 
-            Click.clickPower += 10;
+                Count += 1;
+                CountText.GetComponent<Text>().text = "" + Count;
+
+                ClicksInProgress = 0;
+                ClicksInProgressText.GetComponent<Text>().text = "" + ClicksInProgress;
+
+                Click.clickPower += ClickDamage;
+                Click.DPS += DPS;
+            }
+
+            
+
+            
         }
     }
 

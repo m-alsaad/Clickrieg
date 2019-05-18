@@ -8,22 +8,21 @@ using System;
 public class EnemyImage : MonoBehaviour {
 
     public Sprite BanditImage;
-    public Sprite RabbitImage;
-    public Sprite DeerImage;
+    public Sprite BanditSquadImage;
 
 
 
 	
 	// Update is called once per frame
 	void Update () {
-        if(Battle.CurrentBattle < 6)
+        if(Battle.CurrentBattle < 11)
         {
             GetComponent<Image>().sprite = BanditImage;
             
         }
-        else if(Battle.CurrentBattle < 11)
+        else if(Battle.CurrentBattle < 21)
         {
-            GetComponent<Image>().sprite = DeerImage;
+            GetComponent<Image>().sprite = BanditSquadImage;
         }
 		
 	}

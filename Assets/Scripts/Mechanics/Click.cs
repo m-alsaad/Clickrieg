@@ -7,16 +7,11 @@ public class Click : MonoBehaviour
 {
 
     public static int clickPower;
+    public static int DPS;
 
     private void Start()
     {
         clickPower = 10;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        DPS = 0;
     }
 }

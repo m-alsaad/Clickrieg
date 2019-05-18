@@ -23,10 +23,13 @@ public class Battle : MonoBehaviour {
     int x;
     int y;
 
-    public string EnemyName;                        //Current Enemy's Name
+    private string EnemyName;                        //Current Enemy's Name
     private double EnemyHP;                         //Enemy's Current HP
     private double EnemyMaxHP;                      //Enemy's Max HP
     private int clickPower;                         //Power of Player's Current Click
+    private int DPSPower;
+    private bool DPSActive;
+    private bool EnemyAlive;
     
 
     public GameObject CurrentBattleNumber;          //# of Stage Text Counter
@@ -50,7 +53,7 @@ public class Battle : MonoBehaviour {
         //Update Enemy's HP text and make sure it doesn't show negative numbers
         if (EnemyHP >= 0)
         {
-            HealthBarText.GetComponent<Text>().text = "" + EnemyHP;
+            HealthBarText.GetComponent<Text>().text = "" + Math.Round(EnemyHP,0);
         }
         else
         {
@@ -72,10 +75,14 @@ public class Battle : MonoBehaviour {
 
     private void Start()
     {
+        DPSActive = true;
+        EnemyAlive = true;
         StartCoroutine(EnemyReset());
+        StartCoroutine(DPSAttack());
 
         //Starting Click Power
         clickPower = Click.clickPower;
+        DPSPower = Click.DPS;
 
         //Center point of the Enemy's Picture relative to the world's coordinates and not relative to it's container
         x = (int)EnemyPicture.transform.localPosition.x;
@@ -100,23 +107,8 @@ public class Battle : MonoBehaviour {
         //If Enemy is Dead
         if (EnemyHP <= 0)
         {
-            Gold.GetComponent<Resource>().Add(1*CurrentBattle);     //Earn Gold
-            Science.GetComponent<Resource>().Add(1*CurrentBattle);  //Earn Science
-
-            HealthBarImage.fillAmount = (float)(0);     //Empty's the Health Bar
-
             StartCoroutine(EnemyDefeated());    //Enemy Defeated Effect and Delay Function
 
-            //Updates the number of times a stage is cleared variable counter
-            if (CurrentProgress < 10 && CurrentBattle == MaxStage)
-            {
-                CurrentProgress += 1;
-            }
-            else if (CurrentProgress == 10 && CurrentBattle == MaxStage)
-            {
-                MaxStage += 1;
-                CurrentProgress = 0;
-            }
         }
         else //Enemy did not die
         {
@@ -150,31 +142,52 @@ public class Battle : MonoBehaviour {
     //Enemy Defeated Effects and Delay Function
     IEnumerator EnemyDefeated()
     {
-        
-        ClickButton.GetComponent<Button>().interactable = false;    //Disable Clicking on the Enemy
-
-        //Fade Out the Enemy's picture
-        for (int i = 100; i > 0; i-=5)
+        if(EnemyAlive == true)
         {
-            EnemyPicture.GetComponent<Image>().color = new Color32(255, 255, 225, (byte)i);
-            yield return new WaitForSeconds(0.01f);
-        }
-        
-        yield return new WaitForSeconds(.3f);   //The Delay before Enemy respawn and Clicking is Enabled again
+            EnemyAlive = false;
+            HealthBarImage.fillAmount = (float)(0);     //Empty's the Health Bar
+            Gold.GetComponent<Resource>().Add((int)(1.5 * CurrentBattle));     //Earn Gold
+            Science.GetComponent<Resource>().Add(1 * CurrentBattle);  //Earn Science
 
-        HealthBarImage.fillAmount = (float)(1);     //Returning Health Bar to Full
-        EnemyPicture.GetComponent<Image>().color = new Color32(255, 255, 225, 255); //Bring Picture back from Fade Out 
-        StartCoroutine(EnemyReset());
-        yield return new WaitForSeconds(0.01f);     //Makes sures enemy is brought back with full HP before Click is enabled
-        ClickButton.GetComponent<Button>().interactable = true; //Re-Enable Clicking on the Enemy
+            ClickButton.GetComponent<Button>().interactable = false;    //Disable Clicking on the Enemy
+
+            //Updates the number of times a stage is cleared variable counter
+            if (CurrentProgress < 10 && CurrentBattle == MaxStage)
+            {
+                CurrentProgress += 1;
+            }
+            else if (CurrentProgress == 10 && CurrentBattle == MaxStage)
+            {
+                MaxStage += 1;
+                CurrentProgress = 0;
+            }
+
+            //Fade Out the Enemy's picture
+            for (int i = 100; i > 0; i -= 5)
+            {
+                EnemyPicture.GetComponent<Image>().color = new Color32(255, 255, 225, (byte)i);
+                yield return new WaitForSeconds(0.01f);
+            }
+
+            yield return new WaitForSeconds(.3f);   //The Delay before Enemy respawn and Clicking is Enabled again
+
+            HealthBarImage.fillAmount = (float)(1);     //Returning Health Bar to Full
+            EnemyPicture.GetComponent<Image>().color = new Color32(255, 255, 225, 255); //Bring Picture back from Fade Out 
+            StartCoroutine(EnemyReset());
+            yield return new WaitForSeconds(0.01f);     //Makes sures enemy is brought back with full HP before Click is enabled
+            ClickButton.GetComponent<Button>().interactable = true; //Re-Enable Clicking on the Enemy
+        }
+
     }
 
     IEnumerator EnemyReset()
     {
+        
         yield return new WaitForSeconds(0.01f);
         EnemyName = Enemy.EnemyName;     
         EnemyHP = Enemy.EnemyHP;         
         EnemyMaxHP = Enemy.EnemyHP;
+        EnemyAlive = true;
     }
 
 
@@ -201,134 +214,30 @@ public class Battle : MonoBehaviour {
         }      
     }
 
+    IEnumerator DPSAttack()
+    {
+        while(DPSActive == true)
+        {
+            yield return new WaitForSeconds(0.016f);
+            DPSPower = Click.DPS;
+            EnemyHP -= (double)(0.016 * DPSPower);
+
+            //If Enemy is Dead
+            if (EnemyHP <= 0)
+            {
+                
+                StartCoroutine(EnemyDefeated());    //Enemy Defeated Effect and Delay Function
+
+            }
+            else //Enemy did not die
+            {
+                //Remaining Health Bar
+                HealthBarImage.fillAmount = (float)(EnemyHP / EnemyMaxHP);
+            }
+        }
 
 
+    }
+        
 
-
-
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    //public void ButtonClick()
-    //{
-
-    //    Active = true;
-
-    //    Debug.Log("Player Stealth: " + Player.TotalStealth + " VS. Enemy Alert: " + Enemy.TotalAlert);
-
-    //    if (Player.TotalStealth > Enemy.TotalAlert)
-    //    {
-    //        Debug.Log("Player Start First");
-    //        PlayerTurn = true;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Enemy Start First");
-    //        PlayerTurn = false;
-    //    }
-
-    //    CommenceBattle(CurrentBattle);
-    //}
-
-
-
-
-
-    //public void CommenceBattle(int BattleNumber)
-    //{
-    //    Distance = 0;
-    //    BattleRound = 0;
-    //    RunPanalty = 0;
-    //    EnemyHP = Enemy.EnemyTotalHP;
-    //    EnemyMaxHP = Enemy.EnemyTotalHP;
-
-    //    Debug.Log("Battle Started!");
-
-    //    while(Active == true)
-    //    {
-    //        BattleRound += 1;
-    //        Debug.Log("Round " + BattleRound + "!");
-
-    //        if (PlayerTurn == true)
-    //        {
-    //            Debug.Log("Player's Turn");
-    //            if (Distance > 0)
-    //            {
-    //                Debug.Log("Enemy is " + Distance + " Units away!");
-    //                Distance -= Player.PlayerTotalSpeed;
-    //            }
-
-    //            if (Distance <= 0 && BattleRound > 1)
-    //            {
-    //                RunPanalty = Distance + Player.PlayerTotalSpeed;
-    //                Debug.Log("RunPanalty is " + RunPanalty);
-    //                Distance = 0;
-    //            }
-
-    //            if (Distance == 0)
-    //            {
-
-    //                PlayerFinalAttack = Player.PlayerTotalAttack - (Player.PlayerTotalAttack*(RunPanalty / Player.PlayerTotalSpeed));
-    //                Debug.Log("Player has dealt " + PlayerFinalAttack + " unit of Attack to Enemy who had " + EnemyHP + " units of Health");
-    //                EnemyHP -= PlayerFinalAttack;
-    //                EnemyHP = Math.Round(EnemyHP, 2);
-    //                RunPanalty = 0;
-
-    //                Debug.Log("Enemy Health is " + Math.Round(EnemyHP, 2));
-    //                if (EnemyHP <= 0)
-    //                {
-    //                    Debug.Log("You are Victorious!");
-    //                    Victory = true;
-    //                    Active = false;
-    //                    break;
-    //                }
-    //            }
-    //            PlayerTurn = false;
-    //        }
-
-    //        else if (PlayerTurn == false)
-    //        {
-    //            Debug.Log("Enemy's Turn");
-    //            if (BattleType == "Flee")
-    //            {
-    //                Debug.Log("Enemy is trying to flee!");
-    //                Debug.Log(EnemyHP);
-    //                Debug.Log(EnemyMaxHP);
-    //                EnemyFinalSpeed = Enemy.EnemyTotalSpeed * (EnemyHP / EnemyMaxHP);
-    //                Distance += EnemyFinalSpeed;
-    //                Debug.Log("Enemy has ran " + EnemyFinalSpeed + " units of Distance and now stands away with a distance of " + Distance + " units away");
-
-    //                if (Distance >= Player.PlayerTotalSpeed * 3 || BattleRound == 10)
-    //                {
-    //                    Debug.Log("Enemy Has Fled!");
-    //                    Debug.Log("DEFEAT!");
-    //                    Victory = false;
-    //                    Active = false;
-    //                    break;
-    //                }
-    //            }
-    //            PlayerTurn = true;
-    //        }
-    //    }
-
-    //    if (Victory == true)
-    //    {
-    //        GlobalScience.ScienceCount += 1;
-    //        GlobalFood.FoodCount += 1;
-
-    //        if (CurrentProgress < 10)
-    //        {
-    //            CurrentProgress += 1;
-    //        }
-    //    }
-
-    //    Debug.Log("Battle Ended!");
-
-
-
-
-    //}
 }
