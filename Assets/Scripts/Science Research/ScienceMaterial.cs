@@ -165,7 +165,10 @@ public class ScienceMaterial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Research.ResearchActive == false)
+        {
+            //CheckDisplay();
+        }
     }
 
     //This opens up the research panel (small window)
@@ -175,11 +178,6 @@ public class ScienceMaterial : MonoBehaviour
         ResearchButton.ScienceCost = ScienceCost;
         ResearchButton.GoldCost = GoldCost;
         Research.tempID = ID;
-        Research.RelayList = Relays;
-        Research.PathList = Paths;
-        Research.CompleteClickPower = RewardClickPower;
-        Research.CompleteSteelReward = RewardSteel;
-        Research.RewardUnlock = RewardUnlock;
         ResearchDisplay.ID = ID;
 
         DisplayButton.ButtonClick();
@@ -190,7 +188,15 @@ public class ScienceMaterial : MonoBehaviour
         QuoteText.GetComponent<Text>().text = "\"" + Quote + "\"";
         ResearchEffects.GetComponent<Text>().text = "" + Effects;
 
+        CheckDisplay();
 
+
+
+
+    }
+
+    public void CheckDisplay()
+    {
         //Conditions on how the information is displayed depending on specific Conditions
         if (Research.ResearchActive == false && Research.Completed.Contains(ID) == false)
         {
@@ -198,6 +204,11 @@ public class ScienceMaterial : MonoBehaviour
             Research.ID = ID;
             Research.x = x;
             Research.y = y;
+            Research.CompleteClickPower = RewardClickPower;
+            Research.CompleteSteelReward = RewardSteel;
+            Research.RelayList = Relays;
+            Research.PathList = Paths;
+            Research.RewardUnlock = RewardUnlock;
 
             ScienceText.GetComponent<Text>().text = "Sience: " + ScienceCost;
             GoldText.GetComponent<Text>().text = "Gold: " + GoldCost;
@@ -223,6 +234,8 @@ public class ScienceMaterial : MonoBehaviour
         }
         else if (Research.ResearchActive == true && Research.Completed.Contains(ID) == false && Research.ID != ID)
         {
+
+
             ScienceText.GetComponent<Text>().text = "Sience: " + ScienceCost;
             GoldText.GetComponent<Text>().text = "Gold: " + GoldCost;
             TimeText.GetComponent<Text>().text = "Time: " + TimeCost;
@@ -242,7 +255,6 @@ public class ScienceMaterial : MonoBehaviour
             TimeText.GetComponent<Text>().text = "";
             ResearchText.GetComponent<Text>().text = "";
         }
-
     }
 
 

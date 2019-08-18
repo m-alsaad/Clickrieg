@@ -10,6 +10,9 @@ public class ResearchButton : MonoBehaviour
     public static int TimeCost;
     public static int ID;
 
+    public static int ClickReward;
+    public static int SteelReward;
+
     public GameObject Science;
     public GameObject Gold;
 
@@ -42,7 +45,9 @@ public class ResearchButton : MonoBehaviour
             ScienceText.GetComponent<Text>().text = "";
             GoldText.GetComponent<Text>().text = "";
             TimeText.GetComponent<Text>().text = "";
-
+            ID = Research.ID;
+            ClickReward = Research.CompleteClickPower;
+            SteelReward = Research.CompleteSteelReward;
             Research.ResearchActive = true;
             
 

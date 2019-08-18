@@ -132,7 +132,7 @@ public class Research : MonoBehaviour
             TimeRemaining -= 1;
         }
 
-        //Once Research Comples, goes through here
+        //Once Research Completes, goes through here
         Countdown = false;
         ResearchActive = false;
         if (Display.activeSelf && tempID == ID)
@@ -143,6 +143,7 @@ public class Research : MonoBehaviour
         if (tempID != ID)
         {
             Button.SetActive(true);
+            
         }
 
         ResetFlash();
@@ -197,7 +198,9 @@ public class Research : MonoBehaviour
     //Research COMPLETEM Method
     public void ResearchComplete()
     {
+        ID = ResearchButton.ID;
         Completed.Add(ID); //Adds current ID into the Complete list
+        ResearchButton.ID = 000;
 
         //For Loop Starts going through the list or Relay Research
         for (int i = 0; i < RelayList.Count; i++)
@@ -205,6 +208,7 @@ public class Research : MonoBehaviour
             //For Loop going through the Research Materials Game Objects
             for (int k = 0; k < Objs.Length; k++)
             {
+                Debug.Log("Looking for " + ID);
                 //Check if they have the same ID (Relay of Research Material 1 == Dependent of Research Material 2)
                 if (RelayList[i] == Objs[k].GetComponent<ScienceMaterial>().ID)
                 {

@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour {
  
         if (Battle.CurrentBattle < 11)
         {
-            Debug.Log(Resources.Load<Sprite>("Enemies/Bandit"));
+            
             EnemyImageObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Enemies/Bandit");
 
             EnemyName = Bandit.Name;
