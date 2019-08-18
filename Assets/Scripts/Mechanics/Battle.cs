@@ -40,6 +40,7 @@ public class Battle : MonoBehaviour {
     public GameObject Gold;                         //Gold Object from the Hierarchy
     public GameObject Science;                      //Science Object from the Hierarchy
     public GameObject HealthBarText;                //The Text of Enemy's HP
+    public GameObject AutoProgressToggle;           //The Checkbox of AutoProgress
     public Image HealthBarImage;                    //The Red HP Bar Image
 
 
@@ -176,6 +177,12 @@ public class Battle : MonoBehaviour {
             StartCoroutine(EnemyReset());
             yield return new WaitForSeconds(0.01f);     //Makes sures enemy is brought back with full HP before Click is enabled
             ClickButton.GetComponent<Button>().interactable = true; //Re-Enable Clicking on the Enemy
+
+            //If Auto Progress is On, go to next Stage automatically (GOOD FOR IDLE PLAY!)
+            if(AutoProgressToggle.GetComponent<Toggle>().isOn == true && CurrentProgress <= 10 && CurrentBattle < MaxStage)
+            {
+                RightClick();
+            }
         }
 
     }
