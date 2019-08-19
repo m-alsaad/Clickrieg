@@ -11,6 +11,7 @@ public class ProductionUnit : MonoBehaviour
     public int AluminiumCost;
     public int GoldCost;
     public int Clicks;
+    public double Multiplier;
     private int ClicksInProgress;
 
     public int ClickDamage;
@@ -143,7 +144,7 @@ public class ProductionUnit : MonoBehaviour
 
             if(ClicksInProgress >= Clicks)
             {
-                GoldCost = (int)(GoldCost * 1.4);
+                GoldCost = (int)(GoldCost * Multiplier);
                 CostInGold.GetComponent<Text>().text = "" + GoldCost;
 
                 Count += 1;

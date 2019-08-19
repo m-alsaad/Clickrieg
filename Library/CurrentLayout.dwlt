@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 344}
   m_MaxSize: {x: 12004, y: 8044}
   vertical: 0
-  controlID: 43
+  controlID: 56
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 344}
   m_MaxSize: {x: 8004, y: 8044}
   vertical: 1
-  controlID: 44
+  controlID: 57
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 222}
   m_MaxSize: {x: 8004, y: 4022}
   vertical: 0
-  controlID: 45
+  controlID: 58
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,8 +210,8 @@ MonoBehaviour:
     y: 0
     width: 1437
     height: 1012
-  m_MinSize: {x: 204, y: 222}
-  m_MaxSize: {x: 4004, y: 4022}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -383,9 +383,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4c330000
-      m_LastClickedID: 13132
-      m_ExpandedIDs: 8efbffff902f0000c62f0000cc2f000080300000a83000003c310000cc310000de3100003e320000be32000092330000
+      m_SelectedIDs: cc310000
+      m_LastClickedID: 12748
+      m_ExpandedIDs: 8efbffff902f0000c62f0000cc2f0000d02f000080300000a8300000f03000003c3100004c310000cc310000b4320000c23200006833000092330000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -445,9 +445,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 6.5330324, y: 19.245525, z: 70.53125}
+    m_Target: {x: 12.893039, y: -6.6794224, z: -142.3421}
     speed: 2
-    m_Value: {x: 6.5330324, y: 19.245525, z: 70.53125}
+    m_Value: {x: 15.212211, y: -6.042379, z: -141.29842}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -456,12 +456,12 @@ MonoBehaviour:
   m_ValidateTrueMetals: 0
   m_DoValidateTrueMetals: 0
   m_SceneViewState:
-    showFog: 1
+    showFog: 0
     showMaterialUpdate: 0
-    showSkybox: 1
-    showFlares: 1
-    showImageEffects: 1
-    showParticleSystems: 1
+    showSkybox: 0
+    showFlares: 0
+    showImageEffects: 0
+    showParticleSystems: 0
   grid:
     xGrid:
       m_Target: 0
@@ -480,9 +480,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 241.74538
+    m_Target: 242.54108
     speed: 2
-    m_Value: 241.74538
+    m_Value: 232.09673
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -500,7 +500,7 @@ MonoBehaviour:
     m_DynamicClip: 1
     m_OcclusionCulling: 0
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.019547021, y: 0.97264016, z: -0.21373554, w: -0.08895014}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 12960
+  m_LastSelectedObjectID: 13148
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -638,19 +638,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Resources
+    - Assets/Icons
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Resources
+  - Assets/Icons
   m_LastFoldersGridSize: -1
   m_LastProjectPath: P:\Media\Documents\Unity\Projects\Clickrieg
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 47}
-    m_SelectedIDs: 5e2c0000
-    m_LastClickedID: 11358
+    scrollPos: {x: 0, y: 59}
+    m_SelectedIDs: b02b0000
+    m_LastClickedID: 11184
     m_ExpandedIDs: 000000008e2a0000b02b0000542c0000222d0000662d0000362e0000702e00005434000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -704,8 +704,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a0320000
-    m_LastClickedInstanceID: 12960
+    m_SelectedInstanceIDs: 80d0ffff
+    m_LastClickedInstanceID: -12160
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000722b00001c2b00002e320000ea32000028320000764500008e400000000000002c290000162700001c2700001a270000a626000038340000
     m_RenameOverlay:

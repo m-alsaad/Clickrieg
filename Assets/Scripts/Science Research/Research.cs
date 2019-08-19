@@ -28,7 +28,7 @@ public class Research : MonoBehaviour
     //LISTS
     public static List<int> RelayList;                      //The Relay Researches this one has
     public static List<int> DependentList;                  //What this Research depends on
-    public static List<GameObject> PathList;                //The Paths connected to this Research
+    public static List<GameObject> PathsConnected;          //The Paths Connected to this Research
 
     public static List<int> Completed = new List<int>();    //List of Completed Reseachs (Takes in their ID (int))
 
@@ -50,6 +50,7 @@ public class Research : MonoBehaviour
 
     //Rewards from completed the Research
     public static int CompleteClickPower;
+    public static int CompleteDPSPower;
     public static int CompleteSteelReward;
     public static GameObject RewardUnlock;
     public GameObject RewardSteelObject;
@@ -140,7 +141,7 @@ public class Research : MonoBehaviour
             ResearchText.GetComponent<Text>().text = "RESEARCHING\nCOMPLETE!";
         }
 
-        if (tempID != ID)
+        if (tempID != ID && !(Completed.Contains(tempID))) //Re-Display the Research Button if it's a different Research Display Open AND it's something not yet researched.
         {
             Button.SetActive(true);
             
@@ -198,17 +199,15 @@ public class Research : MonoBehaviour
     //Research COMPLETEM Method
     public void ResearchComplete()
     {
-        ID = ResearchButton.ID;
+ 
         Completed.Add(ID); //Adds current ID into the Complete list
-        ResearchButton.ID = 000;
 
-        //For Loop Starts going through the list or Relay Research
+        //For Loop Starts going through the list of Relay Research
         for (int i = 0; i < RelayList.Count; i++)
         {
             //For Loop going through the Research Materials Game Objects
             for (int k = 0; k < Objs.Length; k++)
             {
-                Debug.Log("Looking for " + ID);
                 //Check if they have the same ID (Relay of Research Material 1 == Dependent of Research Material 2)
                 if (RelayList[i] == Objs[k].GetComponent<ScienceMaterial>().ID)
                 {
@@ -244,13 +243,14 @@ public class Research : MonoBehaviour
         }
 
         //Turn Paths to Green
-        for (int i = 0; i < PathList.Count; i++)
+        for (int i = 0; i < PathsConnected.Count; i++)
         {
-            PathList[i].GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+                PathsConnected[i].GetComponent<Image>().color = new Color32(0, 255, 0, 255);
         }
 
         //Adds Reward
         Click.clickPower += CompleteClickPower;
+        Click.DPS += CompleteDPSPower;
         RewardSteelObject.GetComponent<Resource>().Add(CompleteSteelReward);
         
         if (RewardUnlock != null)

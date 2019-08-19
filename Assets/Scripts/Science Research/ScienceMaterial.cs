@@ -33,6 +33,7 @@ public class ScienceMaterial : MonoBehaviour
 
     //Rewards
     public int RewardClickPower;
+    public int RewardDPSPower;
     public int RewardSteel;
     public GameObject RewardSteelObject;
     public GameObject RewardUnlock;
@@ -119,6 +120,7 @@ public class ScienceMaterial : MonoBehaviour
         //Adding Relays into the Relays List
         if (Relay1 != 000)
         {
+            
             Relays.Add(Relay1);
         }
         if (Relay2 != 000)
@@ -138,6 +140,45 @@ public class ScienceMaterial : MonoBehaviour
             Relays.Add(Relay5);
         }
 
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    //This opens up the research panel (small window)
+    public void ButtonClick()
+    {
+        //Moves variables to other classes
+        ResearchButton.ScienceCost = ScienceCost;
+        ResearchButton.GoldCost = GoldCost;
+        Research.tempID = ID;
+        ResearchDisplay.ID = ID;
+
+        DisplayButton.ButtonClick();
+
+        //Update The Research Window Overlay
+        ResearchIcon.GetComponent<Image>().sprite = Icon;
+        NameText.GetComponent<Text>().text = Name;
+        QuoteText.GetComponent<Text>().text = "\"" + Quote + "\"";
+        ResearchEffects.GetComponent<Text>().text = "" + Effects;
+
+        //Sends the Research Material Info to the Research Button class where it'll be sent to Research if it is Researched
+        ResearchButton.TimeCost = TimeCost;
+        ResearchButton.ID = ID;
+        ResearchButton.x = x;
+        ResearchButton.y = y;
+        ResearchButton.ClickReward = RewardClickPower;
+        ResearchButton.DPSReward = RewardDPSPower;
+        ResearchButton.SteelReward = RewardSteel;
+        ResearchButton.RelayList = Relays;
+        
+        ResearchButton.RewardUnlock = RewardUnlock;
+        
         //Adding the Paths into the Paths List
         if (Path1 != null)
         {
@@ -160,33 +201,10 @@ public class ScienceMaterial : MonoBehaviour
             Paths.Add(Path5);
         }
 
-    }
+        //Sending the Paths to the Research Button class Path list
+        ResearchButton.PathsConnected = Paths;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Research.ResearchActive == false)
-        {
-            //CheckDisplay();
-        }
-    }
 
-    //This opens up the research panel (small window)
-    public void ButtonClick()
-    {
-        //Moves variables to other classes
-        ResearchButton.ScienceCost = ScienceCost;
-        ResearchButton.GoldCost = GoldCost;
-        Research.tempID = ID;
-        ResearchDisplay.ID = ID;
-
-        DisplayButton.ButtonClick();
-
-        //Update The Research Window Overlay
-        ResearchIcon.GetComponent<Image>().sprite = Icon;
-        NameText.GetComponent<Text>().text = Name;
-        QuoteText.GetComponent<Text>().text = "\"" + Quote + "\"";
-        ResearchEffects.GetComponent<Text>().text = "" + Effects;
 
         CheckDisplay();
 
@@ -197,18 +215,12 @@ public class ScienceMaterial : MonoBehaviour
 
     public void CheckDisplay()
     {
+
+
         //Conditions on how the information is displayed depending on specific Conditions
         if (Research.ResearchActive == false && Research.Completed.Contains(ID) == false)
         {
-            Research.TimeCost = TimeCost;
-            Research.ID = ID;
-            Research.x = x;
-            Research.y = y;
-            Research.CompleteClickPower = RewardClickPower;
-            Research.CompleteSteelReward = RewardSteel;
-            Research.RelayList = Relays;
-            Research.PathList = Paths;
-            Research.RewardUnlock = RewardUnlock;
+            
 
             ScienceText.GetComponent<Text>().text = "Sience: " + ScienceCost;
             GoldText.GetComponent<Text>().text = "Gold: " + GoldCost;

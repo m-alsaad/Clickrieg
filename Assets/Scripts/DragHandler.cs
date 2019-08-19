@@ -10,20 +10,20 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     int yPos;
     int xPos;
     private bool start;
-    private int width = 240;
-    private int height = 125;
+    private int width = 200;
+    private int height = 100;
 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Draging!");
         if (start == true)
         {
-            pos = transform.localPosition - Input.mousePosition;
+            pos = transform.localPosition - Input.mousePosition/2;
             start = false;
         }
 
    
-        transform.localPosition = Input.mousePosition + pos;
+        transform.localPosition = Input.mousePosition/2 + pos;
         
         
         
@@ -50,10 +50,10 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
             xPos = width;
             transform.localPosition = new Vector3(xPos, transform.localPosition.y, transform.localPosition.z);
         }
-        else if (transform.localPosition.x > Screen.width - width)
+        else if (transform.localPosition.x > 1080 - width)
         {
             Debug.Log("2");
-            xPos = Screen.width - width;
+            xPos = 1080 - width;
             transform.localPosition = new Vector3(xPos, transform.localPosition.y, transform.localPosition.z);
         }
 
@@ -63,10 +63,10 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
             yPos = height;
             transform.localPosition = new Vector3(transform.localPosition.x, yPos, transform.localPosition.z);
         }
-        else if (transform.localPosition.y > Screen.height - height)
+        else if (transform.localPosition.y > 675 - height)
         {
             Debug.Log("4");
-            yPos = Screen.height - height;
+            yPos = 675 - height;
             transform.localPosition = new Vector3(transform.localPosition.x, yPos, transform.localPosition.z);
         }
     }

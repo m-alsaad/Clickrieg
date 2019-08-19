@@ -5,13 +5,23 @@ using UnityEngine.UI;
 
 public class ResearchButton : MonoBehaviour
 {
+
+    //Research Material Information to pass on when Research is activated
     public static int ScienceCost;
     public static int GoldCost;
     public static int TimeCost;
     public static int ID;
-
+    public static double x;
+    public static double y;
     public static int ClickReward;
+    public static int DPSReward;
     public static int SteelReward;
+
+    public static List<int> RelayList;                      //The Relay Researches this one has
+    public static List<int> DependentList;                  //What this Research depends on
+    public static List<GameObject> PathsConnected;          //The Paths connected to this Research
+
+    public static GameObject RewardUnlock;
 
     public GameObject Science;
     public GameObject Gold;
@@ -37,18 +47,34 @@ public class ResearchButton : MonoBehaviour
 
     public void ButtonClick()
     {
+        //Checks if player has enough Science and Gold
         if(Science.GetComponent<Resource>().GetCount() >= ScienceCost && Gold.GetComponent<Resource>().GetCount() >= GoldCost)
         {
+
+            //Subtract Science and Gold
             Science.GetComponent<Resource>().Subtract(ScienceCost);
             Gold.GetComponent<Resource>().Subtract(GoldCost);
 
+            //Removes text from Science Material Display
             ScienceText.GetComponent<Text>().text = "";
             GoldText.GetComponent<Text>().text = "";
             TimeText.GetComponent<Text>().text = "";
-            ID = Research.ID;
-            ClickReward = Research.CompleteClickPower;
-            SteelReward = Research.CompleteSteelReward;
+
+            //Sends the information of what is being Researched to the main Research Class
+            Research.TimeCost = TimeCost;
+            Research.ID = ID;
+            Research.x = x;
+            Research.y = y;
+            Research.CompleteClickPower = ClickReward;
+            Research.CompleteDPSPower = DPSReward;
+            Research.CompleteSteelReward = SteelReward;
+            Research.RelayList = RelayList;
+            Research.RewardUnlock = RewardUnlock;
+            Research.PathsConnected = PathsConnected;
             Research.ResearchActive = true;
+            
+
+            
             
 
         }
