@@ -74,14 +74,14 @@ public class ProductionUnit : MonoBehaviour
 
         BuildButton.GetComponent<Button>().interactable = false;
 
-        x = CostInTime.transform.position.x;
-        y = CostInTime.transform.position.y;
+        x = CostInTime.transform.localPosition.x;
+        y = CostInTime.transform.localPosition.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
 
     public void StartResearch()
@@ -90,7 +90,7 @@ public class ProductionUnit : MonoBehaviour
         {
             Science.GetComponent<Resource>().Subtract(ScienceCost);
             CostInScience.SetActive(false);
-            CostInTime.GetComponent<RectTransform>().position = new Vector3(x-5, y, 0);
+            CostInTime.GetComponent<RectTransform>().localPosition = new Vector3(x-17, y, 0);
             ResearchAnimation.SetBool("ResearchActive", true);
             ResearchButton.SetActive(false);
             ResearchActive = true;

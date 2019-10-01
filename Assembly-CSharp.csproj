@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Production\Knife.cs" />
     <Compile Include="Assets\Scripts\Production\ProductionUnit.cs" />
     <Compile Include="Assets\Scripts\Resources\Resource.cs" />
+    <Compile Include="Assets\Scripts\Science Research\Path.cs" />
     <Compile Include="Assets\Scripts\Science Research\Research.cs" />
     <Compile Include="Assets\Scripts\Science Research\ResearchButton.cs" />
     <Compile Include="Assets\Scripts\Science Research\ScienceMaterial.cs" />

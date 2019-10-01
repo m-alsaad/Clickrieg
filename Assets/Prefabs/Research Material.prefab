@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8525613570587286414
+--- !u!1 &7123494077490169280
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8525613570587286409}
-  - component: {fileID: 8525613570587286411}
-  - component: {fileID: 8525613570587286408}
-  - component: {fileID: 8525613570587286410}
-  - component: {fileID: 8525613570587286453}
+  - component: {fileID: 2498162798829728008}
+  - component: {fileID: 6364433693272950006}
+  - component: {fileID: 3770226756373541361}
+  - component: {fileID: 2943085351013300496}
+  - component: {fileID: 4248349731065437124}
   m_Layer: 0
-  m_Name: Basics of CQC
+  m_Name: Research Material
   m_TagString: ResearchMaterial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8525613570587286409
+--- !u!224 &2498162798829728008
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525613570587286414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 7123494077490169280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -337.46844}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: 0}
+  m_AnchoredPosition: {x: 160.6, y: -238}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8525613570587286411
+--- !u!222 &6364433693272950006
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525613570587286414}
+  m_GameObject: {fileID: 7123494077490169280}
   m_CullTransparentMesh: 0
---- !u!114 &8525613570587286408
+--- !u!114 &3770226756373541361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525613570587286414}
+  m_GameObject: {fileID: 7123494077490169280}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 56de222f7e1c8e94e8522681d7f791fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9fe23711a2f0e44a8c9cb1e7f1379be, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -76,13 +76,13 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8525613570587286410
+--- !u!114 &2943085351013300496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525613570587286414}
+  m_GameObject: {fileID: 7123494077490169280}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -115,11 +115,11 @@ MonoBehaviour:
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8525613570587286408}
+  m_TargetGraphic: {fileID: 3770226756373541361}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8525613570587286453}
+      - m_Target: {fileID: 4248349731065437124}
         m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
@@ -132,40 +132,41 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8525613570587286453
+--- !u!114 &4248349731065437124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8525613570587286414}
+  m_GameObject: {fileID: 7123494077490169280}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a87abbc822e6ec14dac94f4f565e3388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 56de222f7e1c8e94e8522681d7f791fe, type: 3}
-  Name: BASICS OF CQC
-  Quote: Remember some of the basics of CQC
-  ScienceCost: 10
+  Icon: {fileID: 21300000, guid: f9fe23711a2f0e44a8c9cb1e7f1379be, type: 3}
+  Name: '---'
+  Quote: '---'
+  ScienceCost: 0
   GoldCost: 0
-  TimeCost: 1
-  ID: 1
-  RewardClickPower: 10
+  TimeCost: 0
+  ID: 0
+  RewardClickPower: 0
+  RewardDPSPower: 0
   RewardSteel: 0
   RewardSteelObject: {fileID: 0}
   RewardUnlock: {fileID: 0}
-  Effects: "\t+10 Click Damage\n\tUnlocks \"Kinfe\" Production"
+  Effects: 
   DisplayButton: {fileID: 0}
-  self: {fileID: 8525613570587286414}
+  self: {fileID: 7123494077490169280}
   Dependents: 
   Dependent1: 0
   Dependent2: 0
   Dependent3: 0
   Dependent4: 0
   Dependent5: 0
-  Relay1: 2
-  Relay2: 3
+  Relay1: 0
+  Relay2: 0
   Relay3: 0
   Relay4: 0
   Relay5: 0
