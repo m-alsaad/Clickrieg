@@ -17,7 +17,7 @@ public class Excivating : MonoBehaviour
     //VARIABLES
     public int count;               //How many Excavators we got
     public int time;                //How Long Excivating Takes
-    public bool ExcavatingActive;   //To set an infinite while loop
+    private bool ExcavatingActive;   //To set an infinite while loop
 
     public GameObject Resource;     //Script to Update the extracted Resource from this Script
     public GameObject Text;         //Count Text for number of Excavators we have built       

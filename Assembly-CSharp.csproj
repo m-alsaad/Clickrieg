@@ -64,22 +64,17 @@
   <ItemGroup>
     <Compile Include="Assets\ResearchControl.cs" />
     <Compile Include="Assets\sc.cs" />
+    <Compile Include="Assets\Scripts\Combat\Battle.cs" />
+    <Compile Include="Assets\Scripts\Combat\Click.cs" />
+    <Compile Include="Assets\Scripts\Combat\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Combat\EnemyImage.cs" />
     <Compile Include="Assets\Scripts\Construction\Building.cs" />
     <Compile Include="Assets\Scripts\Construction\ConstructionUnit.cs" />
     <Compile Include="Assets\Scripts\Construction\Excivating.cs" />
-    <Compile Include="Assets\Scripts\ConstructionButton.cs" />
-    <Compile Include="Assets\Scripts\DragHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\Bandit.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Rabbit.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Battle.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Buttons\OpenCloseButton.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Buttons\ResearchDisplay.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Click.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\EnemyImage.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\GlobalBarImages.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\Player.cs" />
-    <Compile Include="Assets\Scripts\Mechanics\ResearchGun.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\DragHandler.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\OpenCloseButton.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\ResearchDisplay.cs" />
     <Compile Include="Assets\Scripts\Production\Knife.cs" />
     <Compile Include="Assets\Scripts\Production\ProductionUnit.cs" />
     <Compile Include="Assets\Scripts\Resources\Resource.cs" />
@@ -87,7 +82,7 @@
     <Compile Include="Assets\Scripts\Science Research\Research.cs" />
     <Compile Include="Assets\Scripts\Science Research\ResearchButton.cs" />
     <Compile Include="Assets\Scripts\Science Research\ScienceMaterial.cs" />
-    <Compile Include="Assets\Scripts\Soldier.cs" />
+    <Compile Include="Assets\Scripts\UNUSED SCRIPTS\ConstructionButton.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalAirforce.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalAluminium.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalArmoured.cs" />
@@ -100,9 +95,13 @@
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalScience.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalSoldiers.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalSteel.cs" />
+    <Compile Include="Assets\Scripts\UNUSED SCRIPTS\GlobalBarImages.cs" />
+    <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Player.cs" />
+    <Compile Include="Assets\Scripts\UNUSED SCRIPTS\ResearchGun.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Science\BasicsOfCQC.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Science\BeginnerOfCQC.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Science\Recruitment.cs" />
+    <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Soldier.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>P:/Media/Documents/Unity/Iron Heart/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
