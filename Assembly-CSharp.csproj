@@ -75,7 +75,6 @@
     <Compile Include="Assets\Scripts\Mechanics\DragHandler.cs" />
     <Compile Include="Assets\Scripts\Mechanics\OpenCloseButton.cs" />
     <Compile Include="Assets\Scripts\Mechanics\ResearchDisplay.cs" />
-    <Compile Include="Assets\Scripts\Production\Knife.cs" />
     <Compile Include="Assets\Scripts\Production\ProductionUnit.cs" />
     <Compile Include="Assets\Scripts\Resources\Resource.cs" />
     <Compile Include="Assets\Scripts\Science Research\Path.cs" />
@@ -96,6 +95,7 @@
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalSoldiers.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Global\GlobalSteel.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\GlobalBarImages.cs" />
+    <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Knife.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Player.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\ResearchGun.cs" />
     <Compile Include="Assets\Scripts\UNUSED SCRIPTS\Science\BasicsOfCQC.cs" />

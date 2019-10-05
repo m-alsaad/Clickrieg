@@ -19,7 +19,6 @@ public class ScienceMaterial : MonoBehaviour
 
     //VARIABLES
     //---------
-    public Sprite Icon;         //The Icon of the Science Material
     public string Name;         //The Name of the Science Material
     public string Quote;        //The Quote within the Science material
     public int ScienceCost;     //The Cost in Science
@@ -48,7 +47,6 @@ public class ScienceMaterial : MonoBehaviour
     public ResearchDisplay DisplayButton;
 
     //GameObjects variables
-    public GameObject self;                 //To get self values
     public static GameObject ResearchText;        //Research Text within the small Research Window
     public static GameObject ResearchIcon;        //Research Icon within the samll Research Window
     public static GameObject NameText;             //Research Name within the small Research Window
@@ -91,8 +89,8 @@ public class ScienceMaterial : MonoBehaviour
     {
 
         //Get self position
-        x = self.transform.localPosition.x;
-        y = self.transform.localPosition.y;
+        x = this.transform.localPosition.x;
+        y = this.transform.localPosition.y;
 
 
         //Adding the Dependents into the Dependents List
@@ -162,7 +160,7 @@ public class ScienceMaterial : MonoBehaviour
         DisplayButton.ButtonClick();
 
         //Update The Research Window Overlay
-        ResearchIcon.GetComponent<Image>().sprite = Icon;
+        ResearchIcon.GetComponent<Image>().sprite = this.GetComponent<Image>().sprite;
         NameText.GetComponent<Text>().text = Name;
         QuoteText.GetComponent<Text>().text = "\"" + Quote + "\"";
         ResearchEffects.GetComponent<Text>().text = "" + Effects;

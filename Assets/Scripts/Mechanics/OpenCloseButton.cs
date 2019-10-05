@@ -1,7 +1,16 @@
-﻿using System.Collections;
+﻿/**************************************************
+ * SIMPLE OPEN AND CLOSE DISPLAY SCRIPT
+ * 
+ * CAN BE USED ON ANY GAME OBJECT. 
+ * USE SCRIPT ON THE BUTTON
+ **************************************************/
+
+//IMPORTS
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//MAIN
 public class OpenCloseButton : MonoBehaviour
 {
 

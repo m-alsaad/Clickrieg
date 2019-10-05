@@ -1,9 +1,19 @@
-﻿using System.Collections;
+﻿/**************************************************
+ * OPEN AND CLOSE DISPLAY SCRIPT SPECIFIC FOR RESEARCH
+ * 
+ * I CAN'T REMEMBER WHY THIS IS NEEDED AND CAN'T USE
+ * THE BASIC ONE
+ **************************************************/
+
+//IMPORTS
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//MAIN
 public class ResearchDisplay : MonoBehaviour
 {
+    //VARIBALES
     public static int ID;
     private int tempID;
 

@@ -20,14 +20,14 @@ public class Battle : MonoBehaviour {
     public static int CurrentProgress = 1;          //# of times a Stage is Cleared out of 10
     public static int MaxStage = 1;                 //# of Highest Stage Reached
 
-    int x;
-    int y;
+    int x;                                          //Enemy's Picture X coordinate
+    int y;                                          //Enemy's Picture Y coordinate
 
-    private string EnemyName;                        //Current Enemy's Name
+    private string EnemyName;                       //Current Enemy's Name
     private double EnemyHP;                         //Enemy's Current HP
     private double EnemyMaxHP;                      //Enemy's Max HP
     private int clickPower;                         //Power of Player's Current Click
-    private int DPSPower;
+    private int DPSPower;                           //Power of Player's Current Damage per Second
     private bool DPSActive;
     private bool EnemyAlive;
     
@@ -61,13 +61,13 @@ public class Battle : MonoBehaviour {
             HealthBarText.GetComponent<Text>().text = "0";
         }
         
-
-        if(CurrentBattle == MaxStage)
+        //Update the text of Battle number and Stage number
+        if(CurrentBattle == MaxStage) //If stage is not completed yet
         {
             CurrentBattleProgress.GetComponent<Text>().text = "" + CurrentProgress + " | 10";   //Updated the number of times a Stage is cleared out of 10
             CurrentBattleProgress.GetComponent<Text>().fontSize = 20;
         }
-        else
+        else //If stage is completed
         {
             CurrentBattleProgress.GetComponent<Text>().text = "COMPLETE!";
             CurrentBattleProgress.GetComponent<Text>().fontSize = 15;
@@ -81,7 +81,7 @@ public class Battle : MonoBehaviour {
         StartCoroutine(EnemyReset());
         StartCoroutine(DPSAttack());
 
-        //Starting Click Power
+        //Starting Player's power
         clickPower = Click.clickPower;
         DPSPower = Click.DPS;
 
@@ -129,7 +129,7 @@ public class Battle : MonoBehaviour {
         {
             //Shake to the Right
             EnemyPicture.transform.localPosition = new Vector3(x + 10, y, transform.position.z);
-            yield return new WaitForSeconds(0.03f); //Wait 0.03 S
+            yield return new WaitForSeconds(0.03f); //Wait 0.03S
 
             //Shake to the Left
             EnemyPicture.transform.localPosition = new Vector3(x - 10, y, transform.position.z);
