@@ -64,6 +64,8 @@ public class ResearchButton : MonoBehaviour
             GoldText.GetComponent<Text>().text = "";
             TimeText.GetComponent<Text>().text = "";
 
+            
+
             //Sends the information of what is being Researched to the main Research Class
             Research.TimeCost = TimeCost;
             Research.ID = ID;
@@ -77,14 +79,15 @@ public class ResearchButton : MonoBehaviour
             Research.RelayList = RelayList;
             Research.RewardUnlock = RewardUnlock;
             Research.Product = RewardProduct;
-            Research.PathsConnected = PathsConnected;
+            Research.ResearchPathsConnected = PathsConnected;
             Research.ResearchActive = true;
-            
 
-            
-            
+
+
+
 
         }
     }
+
 
 }

@@ -28,7 +28,7 @@ public class Research : MonoBehaviour
     //LISTS
     public static List<int> RelayList;                      //The Relay Researches this one has
     public static List<int> DependentList;                  //What this Research depends on
-    public static List<GameObject> PathsConnected;          //The Paths Connected to this Research
+    public static List<GameObject> ResearchPathsConnected;          //The Paths Connected to this Research
 
     public static List<int> Completed = new List<int>();    //List of Completed Reseachs (Takes in their ID (int))
 
@@ -246,11 +246,22 @@ public class Research : MonoBehaviour
 
         }
 
-        //Turn Paths to Green
-        for (int i = 0; i < PathsConnected.Count; i++)
+        //Change Paths Color
+        for (int i = 0; i < ResearchPathsConnected.Count; i++)
         {
-                PathsConnected[i].GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+            //Change dark path to light path
+            if(ResearchPathsConnected[i].GetComponent<Image>().color == new Color32(85,85,85,255))
+            {
+                ResearchPathsConnected[i].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            }
+            //Change light path to green path
+            else if(ResearchPathsConnected[i].GetComponent<Image>().color == new Color32(255, 255, 255, 255))
+            {
+                ResearchPathsConnected[i].GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+            }
+            
         }
+
 
         //Adds Reward
         Click.clickPower += CompleteClickPower;
@@ -270,5 +281,7 @@ public class Research : MonoBehaviour
         }
 
     }
+
+
 
 }

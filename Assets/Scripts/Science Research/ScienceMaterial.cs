@@ -78,7 +78,7 @@ public class ScienceMaterial : MonoBehaviour
         public int Relay5;
 
     //List of 5 Paths that this connects to.
-    public static List<GameObject> Paths = new List<GameObject>();
+    private List<GameObject> Paths = new List<GameObject>();
         public GameObject Path1;
         public GameObject Path2;
         public GameObject Path3;
@@ -182,31 +182,36 @@ public class ScienceMaterial : MonoBehaviour
         ResearchButton.RelayList = Relays;
         
         ResearchButton.RewardUnlock = RewardUnlock;
-        
-        //Adding the Paths into the Paths List
-        if (Path1 != null)
-        {
-            Paths.Add(Path1);
-        }
-        if (Path2 != null)
-        {
-            Paths.Add(Path2);
-        }
-        if (Path3 != null)
-        {
-            Paths.Add(Path3);
-        }
-        if (Path4 != null)
-        {
-            Paths.Add(Path4);
-        }
-        if (Path5 != null)
-        {
-            Paths.Add(Path5);
-        }
 
-        //Sending the Paths to the Research Button class Path list
-        ResearchButton.PathsConnected = Paths;
+        
+            Paths.Clear();
+            //Adding the Paths into the Paths List
+            if (Path1 != null)
+            {
+                Paths.Add(Path1);
+            }
+            if (Path2 != null)
+            {
+                Paths.Add(Path2);
+            }
+            if (Path3 != null)
+            {
+                Paths.Add(Path3);
+            }
+            if (Path4 != null)
+            {
+                Paths.Add(Path4);
+            }
+            if (Path5 != null)
+            {
+                Paths.Add(Path5);
+            }
+
+            //Sending the Paths to the Research Button class Path list
+            ResearchButton.PathsConnected = Paths;
+            
+        
+
 
 
 
