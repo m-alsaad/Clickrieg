@@ -15,6 +15,7 @@ public class Click : MonoBehaviour
 {
     //VARIABLES
     public static int clickPower;
+    public static double clickPowerPercentage;
     public static int DPS;
 
     //Starting Power
@@ -22,6 +23,7 @@ public class Click : MonoBehaviour
     {
         clickPower = 10;
         DPS = 0;
+        clickPowerPercentage = 0.0;
     }
 
     //Add Click Power
@@ -29,7 +31,7 @@ public class Click : MonoBehaviour
     {
         clickPower += num;
     }
-    public int addClickPower()
+    public int getClickPower()
     {
         return clickPower;
     }

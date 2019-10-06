@@ -25,6 +25,9 @@ public class ProductionUnit : MonoBehaviour
 
     public int ClickDamage;         //How much Click Damage this Unit adds
     public int DPS;                 //How much DPS this Unit adds
+    public static double DPSPercentage; //Extra Percentage Damage
+
+    private double RecalculateThreshold;
 
     private float x;                //X position of Time Text Object
     private float y;                //Y postion of Time Text Object
@@ -64,6 +67,8 @@ public class ProductionUnit : MonoBehaviour
     void Start()
     {
         ClicksInProgress = 0;
+        DPSPercentage = 0.0;
+        RecalculateThreshold = 0.0;
 
         ProductName.GetComponent<Text>().text = "" + Name;
         CostInSteel.GetComponent<Text>().text = "" + SteelCost;
@@ -90,7 +95,11 @@ public class ProductionUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        if(RecalculateThreshold < DPSPercentage)
+        {
+            RecalculateThreshold = DPSPercentage;
+            Recaclculate();
+        }
     }
 
     //Button of Research
@@ -177,10 +186,21 @@ public class ProductionUnit : MonoBehaviour
 
                 //Adds damage reward
                 Click.clickPower += ClickDamage;
-                Click.DPS += DPS;
+                Click.DPS += (int)(DPS * (1+DPSPercentage));
             }
 
         }
+    }
+
+    private void Recaclculate()
+    {
+        Click.DPS -= DPS * Count;
+        Click.DPS += (int)(DPS * (1 + DPSPercentage) * Count);
+    }
+
+    public void AddDPSPercentage(double num)
+    {
+        DPSPercentage += num;
     }
 
 }

@@ -46,13 +46,17 @@ public class Research : MonoBehaviour
     public GameObject FlashingIcon;
     public GameObject Unlockable;
     public GameObject ResearchOverlay;
+    
 
 
     //Rewards from completed the Research
     public static int CompleteClickPower;
     public static int CompleteDPSPower;
+    public static double CompleteClickPowerPercentage;
+    public static double CompleteProductDPSPercentage;
     public static int CompleteSteelReward;
     public static GameObject RewardUnlock;
+    public static GameObject Product;
     public GameObject RewardSteelObject;
 
 
@@ -250,9 +254,16 @@ public class Research : MonoBehaviour
 
         //Adds Reward
         Click.clickPower += CompleteClickPower;
+        Click.clickPowerPercentage += CompleteClickPowerPercentage;
         Click.DPS += CompleteDPSPower;
+
         RewardSteelObject.GetComponent<Resource>().Add(CompleteSteelReward);
-        
+
+        if (Product != null)
+        {
+            Product.GetComponent<ProductionUnit>().AddDPSPercentage(CompleteProductDPSPercentage);
+        }
+
         if (RewardUnlock != null)
         {
             RewardUnlock.SetActive(true);

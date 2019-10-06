@@ -33,9 +33,12 @@ public class ScienceMaterial : MonoBehaviour
     //Rewards
     public int RewardClickPower;
     public int RewardDPSPower;
+    public double RewardClickPowerPercentage;
+    public double RewardProductDPSPercentage;
     public int RewardSteel;
     public GameObject RewardSteelObject;
     public GameObject RewardUnlock;
+    public GameObject RewardProduct;
     
 
     //Text Area of Rewards
@@ -171,8 +174,11 @@ public class ScienceMaterial : MonoBehaviour
         ResearchButton.x = x;
         ResearchButton.y = y;
         ResearchButton.ClickReward = RewardClickPower;
+        ResearchButton.ClickPercentageReward = RewardClickPowerPercentage;
+        ResearchButton.ProductDPSPercentageReward = RewardProductDPSPercentage;
         ResearchButton.DPSReward = RewardDPSPower;
         ResearchButton.SteelReward = RewardSteel;
+        ResearchButton.RewardProduct = RewardProduct;
         ResearchButton.RelayList = Relays;
         
         ResearchButton.RewardUnlock = RewardUnlock;

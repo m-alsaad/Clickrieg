@@ -14,6 +14,8 @@ public class ResearchButton : MonoBehaviour
     public static double x;
     public static double y;
     public static int ClickReward;
+    public static double ClickPercentageReward;
+    public static double ProductDPSPercentageReward;
     public static int DPSReward;
     public static int SteelReward;
 
@@ -22,6 +24,8 @@ public class ResearchButton : MonoBehaviour
     public static List<GameObject> PathsConnected;          //The Paths connected to this Research
 
     public static GameObject RewardUnlock;
+    public static GameObject RewardProduct;
+
 
     public GameObject Science;
     public GameObject Gold;
@@ -66,10 +70,13 @@ public class ResearchButton : MonoBehaviour
             Research.x = x;
             Research.y = y;
             Research.CompleteClickPower = ClickReward;
+            Research.CompleteClickPowerPercentage = ClickPercentageReward;
+            Research.CompleteProductDPSPercentage = ProductDPSPercentageReward;
             Research.CompleteDPSPower = DPSReward;
             Research.CompleteSteelReward = SteelReward;
             Research.RelayList = RelayList;
             Research.RewardUnlock = RewardUnlock;
+            Research.Product = RewardProduct;
             Research.PathsConnected = PathsConnected;
             Research.ResearchActive = true;
             

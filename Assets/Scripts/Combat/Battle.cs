@@ -82,7 +82,7 @@ public class Battle : MonoBehaviour {
         StartCoroutine(DPSAttack());
 
         //Starting Player's power
-        clickPower = Click.clickPower;
+        clickPower = (int)(Click.clickPower * (1+Click.clickPowerPercentage));
         DPSPower = Click.DPS;
 
         //Center point of the Enemy's Picture relative to the world's coordinates and not relative to it's container
@@ -97,7 +97,7 @@ public class Battle : MonoBehaviour {
 
         StartCoroutine(ShakeEnemyImage());      //Shake the Enemy when Clicked
 
-        clickPower = Click.clickPower;
+        clickPower = (int)(Click.clickPower * (1 + Click.clickPowerPercentage));
 
         EnemyHP -= clickPower;                  //Updates new Enemy HP based on Click Power
 
