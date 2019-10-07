@@ -264,15 +264,33 @@ public class Research : MonoBehaviour
 
 
         //Adds Reward
-        Click.clickPower += CompleteClickPower;
-        Click.clickPowerPercentage += CompleteClickPowerPercentage;
-        Click.DPS += CompleteDPSPower;
+        
 
         RewardSteelObject.GetComponent<Resource>().Add(CompleteSteelReward);
 
         if (Product != null)
         {
-            Product.GetComponent<ProductionUnit>().AddDPSPercentage(CompleteProductDPSPercentage);
+            if(CompleteClickPower != 0)
+            {
+                Product.GetComponent<ProductionUnit>().AddClickDamage(CompleteClickPower);
+            }
+
+            if(CompleteClickPowerPercentage != 0)
+            {
+                Product.GetComponent<ProductionUnit>().AddClickDamagePercentage(CompleteClickPowerPercentage);
+            }
+
+            if(CompleteDPSPower != 0)
+            {
+                Product.GetComponent<ProductionUnit>().AddDPS(CompleteDPSPower);
+            }
+
+            if(CompleteProductDPSPercentage != 0)
+            {
+                Product.GetComponent<ProductionUnit>().AddDPSPercentage(CompleteProductDPSPercentage);
+            }
+            
+            
         }
 
         if (RewardUnlock != null)

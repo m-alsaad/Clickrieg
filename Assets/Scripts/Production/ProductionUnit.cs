@@ -24,6 +24,7 @@ public class ProductionUnit : MonoBehaviour
     private int ClicksInProgress;   //Clicks in Progress to Build a unit
 
     public int ClickDamage;         //How much Click Damage this Unit adds
+    public double ClickDamagePercentage;
     public int DPS;                 //How much DPS this Unit adds
     public static double DPSPercentage; //Extra Percentage Damage
 
@@ -50,6 +51,9 @@ public class ProductionUnit : MonoBehaviour
     public GameObject ClicksTitle;          //Displays where the clicks are
     public GameObject ClicksText;           //Text of how many clicks are required to build
     public GameObject ClicksInProgressText; //Text of how many clicks in progress
+    public GameObject Effects;
+    public GameObject EffectsText;
+    public bool isDPS;
 
     public Image ProductImage;              //Image of the Unit
     public Animator ResearchAnimation;      //Animation of Researching
@@ -66,8 +70,20 @@ public class ProductionUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(isDPS == true)
+        {
+            EffectsText.GetComponent<Text>().text = "Damage per Second";
+            Effects.GetComponent<Text>().text = "+" + DPS;
+        }
+        else
+        {
+            EffectsText.GetComponent<Text>().text = "Click Damage";
+            Effects.GetComponent<Text>().text = "+" + ClickDamage;
+        }
+        
         ClicksInProgress = 0;
         DPSPercentage = 0.0;
+        ClickDamagePercentage = 0;
         RecalculateThreshold = 0.0;
 
         ProductName.GetComponent<Text>().text = "" + Name;
@@ -95,11 +111,7 @@ public class ProductionUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(RecalculateThreshold < DPSPercentage)
-        {
-            RecalculateThreshold = DPSPercentage;
-            Recaclculate();
-        }
+
     }
 
     //Button of Research
@@ -192,15 +204,36 @@ public class ProductionUnit : MonoBehaviour
         }
     }
 
-    private void Recaclculate()
+    public void AddClickDamage(int num)
     {
-        Click.DPS -= DPS * Count;
-        Click.DPS += (int)(DPS * (1 + DPSPercentage) * Count);
+        Click.clickPower -= ClickDamage * Count;
+        ClickDamage = (int)((ClickDamage + num) * (1 + ClickDamagePercentage));
+        Effects.GetComponent<Text>().text = "+" + ClickDamage;
+        Click.clickPower += ClickDamage * Count;
+    }
+
+    public void AddClickDamagePercentage(double num)
+    {
+        Click.clickPower -= ClickDamage * Count;
+        ClickDamage = (int)((ClickDamage) * (1 + ClickDamagePercentage + num));
+        Effects.GetComponent<Text>().text = "+" + ClickDamage;
+        Click.clickPower += ClickDamage * Count;
     }
 
     public void AddDPSPercentage(double num)
     {
-        DPSPercentage += num;
+        Click.DPS -= DPS * Count;
+        DPS = (int)((DPS + num) * (1 + DPSPercentage+num));
+        Effects.GetComponent<Text>().text = "+" + DPS;
+        Click.DPS += (DPS * Count);
+    }
+
+    public void AddDPS(int num)
+    {
+        Click.DPS -= DPS * Count;
+        DPS = (int)((DPS+num) * (1 + DPSPercentage));
+        Effects.GetComponent<Text>().text = "+" + DPS;
+        Click.DPS += (DPS * Count);
     }
 
 }
