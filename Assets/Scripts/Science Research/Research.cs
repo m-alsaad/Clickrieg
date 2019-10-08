@@ -24,6 +24,7 @@ public class Research : MonoBehaviour
     public static int tempID;               //Temp Variables for the ID (This helps make research panal display correct information)
     public static double x;                 //X Location
     public static double y;                 //Y Location
+    private int Unlock;                     //Number of finished Dependencies
 
     //LISTS
     public static List<int> RelayList;                      //The Relay Researches this one has
@@ -33,7 +34,7 @@ public class Research : MonoBehaviour
     public static List<int> Completed = new List<int>();    //List of Completed Reseachs (Takes in their ID (int))
 
     private bool Countdown;
-    private bool Unlock;            //Checks if a research can be unlocked.
+    
 
     //ARRAY that holds all the Research Material Game Objects from Unity's Hierachy.
     private GameObject[] Objs;
@@ -55,6 +56,7 @@ public class Research : MonoBehaviour
     public static double CompleteClickPowerPercentage;
     public static double CompleteProductDPSPercentage;
     public static int CompleteSteelReward;
+    public static int timeReduction;
     public static GameObject RewardUnlock;
     public static GameObject Product;
     public GameObject RewardSteelObject;
@@ -70,7 +72,7 @@ public class Research : MonoBehaviour
         Countdown = false;
         ID = 000;
         tempID = 000;
-        Unlock = false;
+        Unlock = 0;
 
         //Sets Flashing Icon's Color
         FlashingIcon.GetComponent<Image>().color = new Color32(255, 255, 225, (byte)0);
@@ -114,7 +116,7 @@ public class Research : MonoBehaviour
             {
                 TimeRemaining = TimeCost;
                 Countdown = true;
-                Unlock = false;
+                Unlock = 0;
                 StartCoroutine(Researching());
                 ResetFlash();
             }
@@ -215,24 +217,21 @@ public class Research : MonoBehaviour
                 //Check if they have the same ID (Relay of Research Material 1 == Dependent of Research Material 2)
                 if (RelayList[i] == Objs[k].GetComponent<ScienceMaterial>().ID)
                 {
+                    
                     Unlockable = Objs[k];
                     DependentList = Unlockable.GetComponent<ScienceMaterial>().Dependents; //Get the list of what this Research Material Depends on
 
+                    Unlock = 0;
                     for (int j = 0; j < DependentList.Count; j++)
                     {
-                        //Checks the Completed List if it's Dependents are inside
+                        //Checks the Completed List of it's Dependents are inside
                         if (Completed.Contains(DependentList[j]))
                         {
-                            Unlock = true;
-                        }
-                        else
-                        {
-                            Unlock = false;
+                            Unlock +=1;
                         }
                     }
 
-                    //Unlocks the new Research
-                    if (Unlock == true)
+                    if (Unlock == DependentList.Count)
                     {
                         Unlockable.GetComponent<Button>().interactable = true;
                     }
@@ -288,6 +287,11 @@ public class Research : MonoBehaviour
             if(CompleteProductDPSPercentage != 0)
             {
                 Product.GetComponent<ProductionUnit>().AddDPSPercentage(CompleteProductDPSPercentage);
+            }
+
+            if(timeReduction != 0)
+            {
+                Product.GetComponent<Excivating>().ReduceTime(timeReduction);
             }
             
             

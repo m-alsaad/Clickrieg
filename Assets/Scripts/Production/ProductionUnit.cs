@@ -28,7 +28,10 @@ public class ProductionUnit : MonoBehaviour
     public int DPS;                 //How much DPS this Unit adds
     public static double DPSPercentage; //Extra Percentage Damage
 
-    private double RecalculateThreshold;
+    private GameObject InfantryResource;
+    private GameObject ManpowerResource;
+    public bool isInfantry;
+    public int ManpowerCount;
 
     private float x;                //X position of Time Text Object
     private float y;                //Y postion of Time Text Object
@@ -84,7 +87,9 @@ public class ProductionUnit : MonoBehaviour
         ClicksInProgress = 0;
         DPSPercentage = 0.0;
         ClickDamagePercentage = 0;
-        RecalculateThreshold = 0.0;
+
+        InfantryResource = GameObject.Find("Top Bar/Infantry");
+        ManpowerResource = GameObject.Find("Top Bar/Manpower");
 
         ProductName.GetComponent<Text>().text = "" + Name;
         CostInSteel.GetComponent<Text>().text = "" + SteelCost;
@@ -199,6 +204,14 @@ public class ProductionUnit : MonoBehaviour
                 //Adds damage reward
                 Click.clickPower += ClickDamage;
                 Click.DPS += (int)(DPS * (1+DPSPercentage));
+
+                //Add to Infantry
+                if(isInfantry == true && Count > InfantryResource.GetComponent<Resource>().GetCount())
+                {
+                    InfantryResource.GetComponent<Resource>().Add(1);
+                    ManpowerResource.GetComponent<Resource>().Add(ManpowerCount);
+                }
+                
             }
 
         }

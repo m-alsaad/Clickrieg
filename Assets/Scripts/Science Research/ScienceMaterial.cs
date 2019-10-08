@@ -36,6 +36,7 @@ public class ScienceMaterial : MonoBehaviour
     public double RewardClickPowerPercentage;
     public double RewardProductDPSPercentage;
     public int RewardSteel;
+    public int RewardTimeReduction;
     public GameObject RewardSteelObject;
     public GameObject RewardUnlock;
     public GameObject RewardProduct;
@@ -70,7 +71,7 @@ public class ScienceMaterial : MonoBehaviour
         public int Dependent5;
 
     //List of 5 Researchs that this relays to (helps progress unlock to)
-    public static List<int> Relays = new List<int>();
+    private List<int> Relays = new List<int>();
         public int Relay1;
         public int Relay2;
         public int Relay3;
@@ -95,7 +96,7 @@ public class ScienceMaterial : MonoBehaviour
         x = this.transform.localPosition.x;
         y = this.transform.localPosition.y;
 
-
+        Dependents.Clear();
         //Adding the Dependents into the Dependents List
         if (Dependent1 != 000)
         {
@@ -118,10 +119,10 @@ public class ScienceMaterial : MonoBehaviour
             Dependents.Add(Dependent5);
         }
 
+        Relays.Clear();
         //Adding Relays into the Relays List
         if (Relay1 != 000)
-        {
-            
+        { 
             Relays.Add(Relay1);
         }
         if (Relay2 != 000)
@@ -180,6 +181,7 @@ public class ScienceMaterial : MonoBehaviour
         ResearchButton.SteelReward = RewardSteel;
         ResearchButton.RewardProduct = RewardProduct;
         ResearchButton.RelayList = Relays;
+        ResearchButton.TimeReductionReward = RewardTimeReduction;
         
         ResearchButton.RewardUnlock = RewardUnlock;
 

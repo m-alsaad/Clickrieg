@@ -18,6 +18,7 @@ public class ResearchButton : MonoBehaviour
     public static double ProductDPSPercentageReward;
     public static int DPSReward;
     public static int SteelReward;
+    public static int TimeReductionReward;
 
     public static List<int> RelayList;                      //The Relay Researches this one has
     public static List<int> DependentList;                  //What this Research depends on
@@ -80,7 +81,9 @@ public class ResearchButton : MonoBehaviour
             Research.RewardUnlock = RewardUnlock;
             Research.Product = RewardProduct;
             Research.ResearchPathsConnected = PathsConnected;
+            Research.timeReduction = TimeReductionReward;
             Research.ResearchActive = true;
+            
 
 
 

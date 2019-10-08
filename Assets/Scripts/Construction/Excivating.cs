@@ -55,4 +55,10 @@ public class Excivating : MonoBehaviour
         
 
     }
+
+    public void ReduceTime(int num)
+    {
+        time -= num;
+        Text.GetComponent<Text>().text = count + " / " + time + "s";
+    }
 }
