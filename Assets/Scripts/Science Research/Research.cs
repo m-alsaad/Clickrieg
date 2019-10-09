@@ -296,6 +296,11 @@ public class Research : MonoBehaviour
             
             
         }
+        else
+        {
+            Click.clickPower += CompleteClickPower;
+            Click.DPS += CompleteDPSPower;
+        }
 
         if (RewardUnlock != null)
         {

@@ -85,6 +85,11 @@ public class ScienceMaterial : MonoBehaviour
         public GameObject Path3;
         public GameObject Path4;
         public GameObject Path5;
+        public GameObject Path6;
+        public GameObject Path7;
+        public GameObject Path8;
+        public GameObject Path9;
+        public GameObject Path10;
 
 
 
@@ -208,9 +213,29 @@ public class ScienceMaterial : MonoBehaviour
             {
                 Paths.Add(Path5);
             }
+            if (Path6 != null)
+            {
+                Paths.Add(Path6);
+            }
+            if (Path7 != null)
+            {
+                Paths.Add(Path7);
+            }
+            if (Path8 != null)
+            {
+                Paths.Add(Path8);
+            }
+            if (Path9 != null)
+            {
+                Paths.Add(Path9);
+            }
+            if (Path10 != null)
+            {
+                Paths.Add(Path10);
+            }
 
-            //Sending the Paths to the Research Button class Path list
-            ResearchButton.PathsConnected = Paths;
+        //Sending the Paths to the Research Button class Path list
+        ResearchButton.PathsConnected = Paths;
             
         
 
