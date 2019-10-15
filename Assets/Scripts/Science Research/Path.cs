@@ -58,7 +58,7 @@ public class Path : MonoBehaviour
 
             //Get Path Width
             length = Vector3.Distance(scienceStart.transform.localPosition, scienceEnd.transform.localPosition);
-            this.GetComponent<RectTransform>().sizeDelta = new Vector2(length, 5);
+            this.GetComponent<RectTransform>().sizeDelta = new Vector2(length, 15);
 
             //Get x and y of Science Materials
             x1 = (scienceStart.transform.localPosition.x);

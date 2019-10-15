@@ -23,6 +23,8 @@ public class ProductionUnit : MonoBehaviour
     public double Multiplier;       //Multipier how much the cost increases per built unit
     private int ClicksInProgress;   //Clicks in Progress to Build a unit
 
+    public int FactoryCount;
+
     public int ClickDamage;         //How much Click Damage this Unit adds
     public double ClickDamagePercentage;
     public int DPS;                 //How much DPS this Unit adds
@@ -56,6 +58,8 @@ public class ProductionUnit : MonoBehaviour
     public GameObject ClicksInProgressText; //Text of how many clicks in progress
     public GameObject Effects;
     public GameObject EffectsText;
+    public GameObject FactoryObject;
+    public GameObject FactoryCountText;
     public bool isDPS;
 
     public Image ProductImage;              //Image of the Unit
@@ -102,6 +106,7 @@ public class ProductionUnit : MonoBehaviour
         ClicksText.GetComponent<Text>().text = "" + Clicks;
         ClicksInProgressText.GetComponent<Text>().text = "" + ClicksInProgress;
         
+        
 
         TimeRemaining = TimeCost;
 
@@ -111,6 +116,8 @@ public class ProductionUnit : MonoBehaviour
 
         x = CostInTime.transform.localPosition.x;
         y = CostInTime.transform.localPosition.y;
+
+        
     }
 
     // Update is called once per frame
@@ -158,7 +165,8 @@ public class ProductionUnit : MonoBehaviour
                 CountText.SetActive(true);                                                      //Display the counter of how many we built
                 ResearchAnimation.SetBool("ResearchComplete", true);                            //End Research Animation and turn image to final resualt
                 ProductImage.GetComponent<Image>().color = new Color32(255, 255, 255, 255);     //Turn Unit Image to colors
-                //CostInScience.SetActive(false);                                                 
+                //FactoryObject.SetActive(true);
+                //FactoryCountText.GetComponent<Text>().text = "" + FactoryCount;
                 BuildButton.GetComponent<Button>().interactable = true;                         //Enable clicking on image to start producing
                 ResearchActive = false;                                                         //Research has ended
             }

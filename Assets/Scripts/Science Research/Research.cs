@@ -26,6 +26,9 @@ public class Research : MonoBehaviour
     public static double y;                 //Y Location
     private int Unlock;                     //Number of finished Dependencies
 
+    private int JujubaLoveMomoty;
+    private int MomotyLoveJujuba;
+
     //LISTS
     public static List<int> RelayList;                      //The Relay Researches this one has
     public static List<int> DependentList;                  //What this Research depends on
@@ -67,6 +70,13 @@ public class Research : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        JujubaLoveMomoty = 100000000;
+        MomotyLoveJujuba = MomotyLoveJujuba + 1;
+
+
+
+
         //Sets Variables
         ResearchActive = false;
         Countdown = false;
@@ -249,7 +259,7 @@ public class Research : MonoBehaviour
         for (int i = 0; i < ResearchPathsConnected.Count; i++)
         {
             //Change dark path to light path
-            if(ResearchPathsConnected[i].GetComponent<Image>().color == new Color32(85,85,85,255))
+            if(ResearchPathsConnected[i].GetComponent<Image>().color == new Color32(125,75,0,100))
             {
                 ResearchPathsConnected[i].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             }

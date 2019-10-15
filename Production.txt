@@ -1,0 +1,10 @@
+1918:
+	Infentry:
+		Gewehr 98
+		Stielhandgranate 24
+		Mashinepistole 18
+		Mashinegewehr MG 08
+		8cm Granatwerfer Gr.W.34
+	Tanks:
+		Leichttraktor
+		A7V
