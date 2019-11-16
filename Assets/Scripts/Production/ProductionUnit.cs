@@ -23,7 +23,7 @@ public class ProductionUnit : MonoBehaviour
     public double Multiplier;       //Multipier how much the cost increases per built unit
     private int ClicksInProgress;   //Clicks in Progress to Build a unit
 
-    public int FactoryCount;
+    //public int FactoryCount;
 
     public int ClickDamage;         //How much Click Damage this Unit adds
     public double ClickDamagePercentage;
@@ -70,6 +70,11 @@ public class ProductionUnit : MonoBehaviour
     public GameObject Gold;                 //Gold Object that contains the script that keeps track of this resource
     public GameObject Science;              //Sience Object that contains the script that keeps track of this resource
 
+    private GameObject MilitaryFactory;
+    public int MilitaryFactoryAssignedCount;
+    public GameObject MilitaryFactoryAssignedCountText;
+    private bool isBuilding;
+
 
 
 
@@ -94,6 +99,7 @@ public class ProductionUnit : MonoBehaviour
 
         InfantryResource = GameObject.Find("Top Bar/Infantry");
         ManpowerResource = GameObject.Find("Top Bar/Manpower");
+        MilitaryFactory = GameObject.Find("Production/Production Background/Military Factory Icon");
 
         ProductName.GetComponent<Text>().text = "" + Name;
         CostInSteel.GetComponent<Text>().text = "" + SteelCost;
@@ -105,8 +111,9 @@ public class ProductionUnit : MonoBehaviour
         ClicksTitle.GetComponent<Text>().text = "Clicks\n" + Clicks;
         ClicksText.GetComponent<Text>().text = "" + Clicks;
         ClicksInProgressText.GetComponent<Text>().text = "" + ClicksInProgress;
-        
-        
+        //MilitaryFactoryAssignedCountText.GetComponent<Text>().text = "" + MilitaryFactoryAssignedCount;
+
+        isBuilding = false;
 
         TimeRemaining = TimeCost;
 
@@ -165,8 +172,8 @@ public class ProductionUnit : MonoBehaviour
                 CountText.SetActive(true);                                                      //Display the counter of how many we built
                 ResearchAnimation.SetBool("ResearchComplete", true);                            //End Research Animation and turn image to final resualt
                 ProductImage.GetComponent<Image>().color = new Color32(255, 255, 255, 255);     //Turn Unit Image to colors
-                //FactoryObject.SetActive(true);
-                //FactoryCountText.GetComponent<Text>().text = "" + FactoryCount;
+                FactoryObject.SetActive(true);
+                FactoryCountText.GetComponent<Text>().text = "" + MilitaryFactoryAssignedCount;
                 BuildButton.GetComponent<Button>().interactable = true;                         //Enable clicking on image to start producing
                 ResearchActive = false;                                                         //Research has ended
             }
@@ -255,6 +262,92 @@ public class ProductionUnit : MonoBehaviour
         DPS = (int)((DPS+num) * (1 + DPSPercentage));
         Effects.GetComponent<Text>().text = "+" + DPS;
         Click.DPS += (DPS * Count);
+    }
+
+    public void AddMilitaryFactory()
+    {
+        if(MilitaryFactory.GetComponent<Resource>().GetCount() > 0)
+        {
+            MilitaryFactory.GetComponent<Resource>().Subtract(1);
+            MilitaryFactoryAssignedCount += 1;
+            MilitaryFactoryAssignedCountText.GetComponent<Text>().text = "" + MilitaryFactoryAssignedCount;
+
+            if(isBuilding == false)
+            {
+                isBuilding = true;
+                StartCoroutine(Building());
+            }
+        }
+        
+    }
+
+    public void SubtractMilitaryFactory()
+    {
+        if (MilitaryFactoryAssignedCount > 0)
+        {
+            MilitaryFactory.GetComponent<Resource>().Add(1);
+            MilitaryFactoryAssignedCount -= 1;
+            MilitaryFactoryAssignedCountText.GetComponent<Text>().text = "" + MilitaryFactoryAssignedCount;
+        }
+
+    }
+
+    IEnumerator Building()
+    {
+        while(isBuilding == true)
+        {
+            yield return new WaitForSeconds(1);
+
+            if (MilitaryFactoryAssignedCount > 0)
+            {
+                //Checks if we have enough Stee, Aluminium and Gold
+                if ((Steel.GetComponent<Resource>().GetCount()*MilitaryFactoryAssignedCount >= SteelCost) &&
+                   (Aluminium.GetComponent<Resource>().GetCount()*MilitaryFactoryAssignedCount >= AluminiumCost) &&
+                   (Gold.GetComponent<Resource>().GetCount()*MilitaryFactoryAssignedCount >= GoldCost))
+                {
+
+                    //Subtract the used resources from their scripts
+                    Steel.GetComponent<Resource>().Subtract(SteelCost*MilitaryFactoryAssignedCount);
+                    Aluminium.GetComponent<Resource>().Subtract(AluminiumCost*MilitaryFactoryAssignedCount);
+                    Gold.GetComponent<Resource>().Subtract(GoldCost*MilitaryFactoryAssignedCount);
+
+                    //Adds Clicks in Progress and Updates the Text
+                    ClicksInProgress += MilitaryFactoryAssignedCount;
+                    ClicksInProgressText.GetComponent<Text>().text = "" + ClicksInProgress;
+
+                    //Once we reach the required Text
+                    while (ClicksInProgress >= Clicks)
+                    {
+
+                        //Update the new cost of Gold
+                        GoldCost = (int)(GoldCost * Multiplier);
+                        CostInGold.GetComponent<Text>().text = "" + GoldCost;
+
+                        //Add to count
+                        Count += 1;
+                        CountText.GetComponent<Text>().text = "" + Count;
+
+                        //Reset the Clicks in Progress
+                        ClicksInProgress -= Clicks;
+                        ClicksInProgressText.GetComponent<Text>().text = "" + ClicksInProgress;
+
+                        //Adds damage reward
+                        Click.clickPower += ClickDamage;
+                        Click.DPS += (int)(DPS * (1 + DPSPercentage));
+
+                        //Add to Infantry
+                        if (isInfantry == true && Count > InfantryResource.GetComponent<Resource>().GetCount())
+                        {
+                            InfantryResource.GetComponent<Resource>().Add(1);
+                            ManpowerResource.GetComponent<Resource>().Add(ManpowerCount);
+                        }
+
+                    }
+
+                }
+            }
+        }
+        
     }
 
 }

@@ -419,7 +419,6 @@ MonoBehaviour:
   GoldCost: 5
   Clicks: 3
   Multiplier: 0
-  FactoryCount: 0
   ClickDamage: 0
   ClickDamagePercentage: 0
   DPS: 10
@@ -446,10 +445,12 @@ MonoBehaviour:
   isDPS: 1
   ProductImage: {fileID: 6752655019561340428}
   ResearchAnimation: {fileID: 994677040937042043}
-  Steel: {fileID: 0}
-  Aluminium: {fileID: 0}
-  Gold: {fileID: 0}
+  Steel: {fileID: 639918653509655191}
+  Aluminium: {fileID: 7927258427588480674}
+  Gold: {fileID: 5242597273664807066}
   Science: {fileID: 0}
+  MilitaryFactoryAssignedCount: 0
+  MilitaryFactoryAssignedCountText: {fileID: 5617127683574705984}
 --- !u!1 &1860073554266883171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1002,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 624885138144108287}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9071993616876595506}
+        m_MethodName: SubtractMilitaryFactory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6703475388398183791
@@ -1331,7 +1343,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8835207228426539964}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9071993616876595506}
+        m_MethodName: AddMilitaryFactory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &7055668916514355945

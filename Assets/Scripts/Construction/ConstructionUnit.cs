@@ -31,7 +31,7 @@ public class ConstructionUnit : MonoBehaviour
 
     public GameObject Gold;         //Gold Script
 
-    public Building BuildingScript; //Building Script (Where the next building process happens)
+    public BuildingIronExcivator BuildingScript; //Building Script (Where the next building process happens)
 
 
 
@@ -45,8 +45,8 @@ public class ConstructionUnit : MonoBehaviour
         GoldCostText.GetComponent<Text>().text = GoldCost + " Gold";
         TimeCostText.GetComponent<Text>().text = TimeCost + "s";
 
-        Building.TimeCost = TimeCost;
-        Building.TimeRemaining = TimeRemaining;
+        BuildingIronExcivator.TimeCost = TimeCost;
+        BuildingIronExcivator.TimeRemaining = TimeRemaining;
     }
 
     //Building Button
@@ -61,7 +61,7 @@ public class ConstructionUnit : MonoBehaviour
             GoldCostText.GetComponent<Text>().text = GoldCost + " Gold";
 
             //Add InLine
-            Building.InLine += 1;
+            BuildingIronExcivator.InLine += 1;
             
             //Call StartBuilding Script
             BuildingScript.StartBuilding();

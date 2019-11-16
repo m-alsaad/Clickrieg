@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 
 //MAIN
-public class Building : MonoBehaviour
+public class BuildingIronExcivator : MonoBehaviour
 {
 
     //VARIABLES

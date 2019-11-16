@@ -139,7 +139,8 @@ public class Battle : MonoBehaviour {
         EnemyPicture.transform.localPosition = new Vector3(x, y, transform.position.z);  //Return picture to the center
     }
 
-
+    //****NEEDS TO PUT THIS INTO A VOID METHOD AND NOT IENUMERATOR. PUT THE
+    //****FADE OUT INTO AN IEnumerator
     //Enemy Defeated Effects and Delay Function
     IEnumerator EnemyDefeated()
     {

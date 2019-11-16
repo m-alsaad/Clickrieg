@@ -68,13 +68,16 @@
     <Compile Include="Assets\Scripts\Combat\Click.cs" />
     <Compile Include="Assets\Scripts\Combat\Enemy.cs" />
     <Compile Include="Assets\Scripts\Combat\EnemyImage.cs" />
-    <Compile Include="Assets\Scripts\Construction\Building.cs" />
+    <Compile Include="Assets\Scripts\Construction\BuildingIronExcivator.cs" />
+    <Compile Include="Assets\Scripts\Construction\BuildingMilitaryFactory.cs" />
+    <Compile Include="Assets\Scripts\Construction\ConstructionMilitaryFactory.cs" />
     <Compile Include="Assets\Scripts\Construction\ConstructionUnit.cs" />
     <Compile Include="Assets\Scripts\Construction\Excivating.cs" />
     <Compile Include="Assets\Scripts\Enemies\Bandit.cs" />
     <Compile Include="Assets\Scripts\Mechanics\DragHandler.cs" />
     <Compile Include="Assets\Scripts\Mechanics\OpenCloseButton.cs" />
     <Compile Include="Assets\Scripts\Mechanics\ResearchDisplay.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\UnitTabs.cs" />
     <Compile Include="Assets\Scripts\Production\ProductionUnit.cs" />
     <Compile Include="Assets\Scripts\Resources\Resource.cs" />
     <Compile Include="Assets\Scripts\Science Research\Path.cs" />
