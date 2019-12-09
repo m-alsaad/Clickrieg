@@ -91,6 +91,8 @@ public class ScienceMaterial : MonoBehaviour
         public GameObject Path9;
         public GameObject Path10;
 
+    public GameObject clickSound;
+
 
 
     // Start is called before the first frame update
@@ -147,7 +149,7 @@ public class ScienceMaterial : MonoBehaviour
             Relays.Add(Relay5);
         }
 
-
+        clickSound = GameObject.Find("Sounds/Click Default");
 
     }
 
@@ -160,6 +162,8 @@ public class ScienceMaterial : MonoBehaviour
     //This opens up the research panel (small window)
     public void ButtonClick()
     {
+
+        clickSound.GetComponent<AudioSource>().Play();
         //Moves variables to other classes
         ResearchButton.ScienceCost = ScienceCost;
         ResearchButton.GoldCost = GoldCost;

@@ -33,6 +33,8 @@ public class ConstructionUnit : MonoBehaviour
 
     public BuildingIronExcivator BuildingScript; //Building Script (Where the next building process happens)
 
+    public AudioSource buildingSound;
+
 
 
     // Start is called before the first frame update
@@ -55,6 +57,11 @@ public class ConstructionUnit : MonoBehaviour
         //Checks if we have enough gold to begin construction
         if(Gold.GetComponent<Resource>().GetCount() >= GoldCost)
         {
+            if(BuildingIronExcivator.InLine == 0)
+            {
+                buildingSound.Play();
+            }
+
             //Update Gold
             Gold.GetComponent<Resource>().Subtract(GoldCost);
             GoldCost = (int)(GoldCost * 1.25);

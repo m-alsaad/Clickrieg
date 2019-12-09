@@ -18,6 +18,7 @@ public class ResearchDisplay : MonoBehaviour
     private int tempID;
 
     public GameObject Background;
+    public AudioSource closeSound;
 
 
     public void Start()
@@ -37,6 +38,7 @@ public class ResearchDisplay : MonoBehaviour
         {
             if (tempID == ID)
             {
+                
                 Background.SetActive(false);
                 tempID = 000;
             }
@@ -50,6 +52,7 @@ public class ResearchDisplay : MonoBehaviour
 
     public void ButtonClickClose()
     {
+        closeSound.Play();
         Background.SetActive(false);
         tempID = 000;
     }

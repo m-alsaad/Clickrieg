@@ -75,6 +75,9 @@ public class ProductionUnit : MonoBehaviour
     public GameObject MilitaryFactoryAssignedCountText;
     private bool isBuilding;
 
+    public GameObject startResearchSound;
+    public GameObject endResearchSound;
+
 
 
 
@@ -82,7 +85,10 @@ public class ProductionUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(isDPS == true)
+        startResearchSound = GameObject.Find("Sounds/Production Research Start");
+        endResearchSound = GameObject.Find("Sounds/Production Research End");
+
+        if (isDPS == true)
         {
             EffectsText.GetComponent<Text>().text = "Damage per Second";
             Effects.GetComponent<Text>().text = "+" + DPS;
@@ -154,8 +160,11 @@ public class ProductionUnit : MonoBehaviour
     //Unit Research Enumerator
     IEnumerator Researching()
     {
+        startResearchSound.GetComponent<AudioSource>().Play();
+        
+
         //Research is still active
-        while(ResearchActive == true)
+        while (ResearchActive == true)
         {
             yield return new WaitForSeconds(1);     //Update every 1 second
 
@@ -165,6 +174,7 @@ public class ProductionUnit : MonoBehaviour
             //Research is complete
             if(TimeRemaining <= 0)
             {
+                endResearchSound.GetComponent<AudioSource>().Play();
                 ClicksTitle.GetComponent<Text>().text = "Clicks\n|";                            //Updates Click Text to Have a seperator
                 ClicksText.SetActive(true);                                                     //Display the Click Requirement text
                 ClicksInProgressText.SetActive(true);                                           //Display the Clicks in Progress text

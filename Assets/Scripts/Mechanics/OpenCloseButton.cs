@@ -16,7 +16,13 @@ public class OpenCloseButton : MonoBehaviour
 
     //The Background image that will be manipulated
     public GameObject Background;
+    public AudioSource open;
+    public AudioSource close;
 
+    private void Start()
+    {
+
+    }
 
     //For Buttons that open and close a display
     public void OpenCloseClick()
@@ -25,10 +31,12 @@ public class OpenCloseButton : MonoBehaviour
         if(Background.activeSelf == false)
         {
             Background.SetActive(true);
+            open.Play();
         }
         else
         {
             Background.SetActive(false);
+            close.Play();
         }
 
     }

@@ -64,6 +64,8 @@ public class Research : MonoBehaviour
     public static GameObject Product;
     public GameObject RewardSteelObject;
 
+    public AudioSource endResearchSound;
+
 
 
 
@@ -215,7 +217,8 @@ public class Research : MonoBehaviour
     //Research COMPLETEM Method
     public void ResearchComplete()
     {
- 
+        endResearchSound.Play();
+
         Completed.Add(ID); //Adds current ID into the Complete list
 
         //For Loop Starts going through the list of Relay Research

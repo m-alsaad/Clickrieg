@@ -36,7 +36,7 @@ public class ResearchButton : MonoBehaviour
     public GameObject TimeText;
     public GameObject ResearchText;
 
-
+    public AudioSource startResearchSound;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +55,7 @@ public class ResearchButton : MonoBehaviour
         //Checks if player has enough Science and Gold
         if(Science.GetComponent<Resource>().GetCount() >= ScienceCost && Gold.GetComponent<Resource>().GetCount() >= GoldCost)
         {
+            startResearchSound.Play();
 
             //Subtract Science and Gold
             Science.GetComponent<Resource>().Subtract(ScienceCost);

@@ -33,6 +33,8 @@ public class ConstructionMilitaryFactory : MonoBehaviour
 
     public GameObject Construction; //Building Script (Where the next building process happens)
 
+    public AudioSource buildSound;
+
 
 
     // Start is called before the first frame update
@@ -55,6 +57,11 @@ public class ConstructionMilitaryFactory : MonoBehaviour
         //Checks if we have enough gold to begin construction
         if(Gold.GetComponent<Resource>().GetCount() >= GoldCost)
         {
+            if(BuildingMilitaryFactory.InLine == 0)
+            {
+                buildSound.Play();
+            }
+
             //Update Gold
             Gold.GetComponent<Resource>().Subtract(GoldCost);
             GoldCost = (int)(GoldCost * 1.25);
