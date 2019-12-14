@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Assets\ResearchControl.cs" />
     <Compile Include="Assets\sc.cs" />
+    <Compile Include="Assets\Scripts\Army.cs" />
+    <Compile Include="Assets\Scripts\BattleMode.cs" />
     <Compile Include="Assets\Scripts\Combat\Battle.cs" />
     <Compile Include="Assets\Scripts\Combat\Click.cs" />
     <Compile Include="Assets\Scripts\Combat\Enemy.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Assets\Scripts\Construction\ConstructionMilitaryFactory.cs" />
     <Compile Include="Assets\Scripts\Construction\ConstructionUnit.cs" />
     <Compile Include="Assets\Scripts\Construction\Excivating.cs" />
+    <Compile Include="Assets\Scripts\Delete.cs" />
     <Compile Include="Assets\Scripts\Enemies\Bandit.cs" />
     <Compile Include="Assets\Scripts\Mechanics\DragHandler.cs" />
     <Compile Include="Assets\Scripts\Mechanics\OpenCloseButton.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Assets\Scripts\Mechanics\UnitTabs.cs" />
     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Menu\SetVolume.cs" />
+    <Compile Include="Assets\Scripts\News.cs" />
     <Compile Include="Assets\Scripts\Production\ProductionUnit.cs" />
     <Compile Include="Assets\Scripts\Resources\Resource.cs" />
     <Compile Include="Assets\Scripts\Science Research\Path.cs" />

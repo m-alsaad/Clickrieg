@@ -311,9 +311,9 @@ public class ProductionUnit : MonoBehaviour
             if (MilitaryFactoryAssignedCount > 0)
             {
                 //Checks if we have enough Stee, Aluminium and Gold
-                if ((Steel.GetComponent<Resource>().GetCount()*MilitaryFactoryAssignedCount >= SteelCost) &&
-                   (Aluminium.GetComponent<Resource>().GetCount()*MilitaryFactoryAssignedCount >= AluminiumCost) &&
-                   (Gold.GetComponent<Resource>().GetCount()*MilitaryFactoryAssignedCount >= GoldCost))
+                if ((Steel.GetComponent<Resource>().GetCount() >= SteelCost * MilitaryFactoryAssignedCount) &&
+                   (Aluminium.GetComponent<Resource>().GetCount() >= AluminiumCost * MilitaryFactoryAssignedCount) &&
+                   (Gold.GetComponent<Resource>().GetCount() >= GoldCost * MilitaryFactoryAssignedCount))
                 {
 
                     //Subtract the used resources from their scripts
